@@ -1,0 +1,32 @@
+/* ===============================
+   SCROLL SNAP MODE 2 – PREMIUM
+=============================== */
+html, body {
+  scroll-behavior: smooth;
+}
+/* Scroll Snap Container */
+#mainContainer {
+  scroll-snap-type: y mandatory;
+  overflow-y: auto;
+  height: 100vh;
+}
+/* Setiap section */
+.snap-section {
+  scroll-snap-align: center;
+  padding: 60px 20px;
+  min-height: 80vh;  /* tidak full screen, hanya besar */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+/* Optional — buat transisi lebih lembut */
+.snap-section {
+  transition: padding 0.4s ease;
+}
+/* Pada layar kecil, snap tetap bekerja */
+@media(max-width: 768px) {
+  #mainContainer {
+    scroll-snap-type: y mandatory;
+  }
+}

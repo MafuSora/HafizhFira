@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Undangan Resepsi Hafizh & Fira</title>
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Great+Vibes&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/theme.css" />
+    <link rel="stylesheet" href="assets/css/cover.css" />
+    <link rel="stylesheet" href="assets/css/effects.css" />
+    <link rel="stylesheet" href="assets/css/sidebar.css" />
+    <link rel="stylesheet" href="assets/css/snap.css" />
+    <link rel="stylesheet" href="assets/css/envelope.css" />
+    <link rel="stylesheet" href="assets/css/gift.css" />
+    <!-- <link rel="stylesheet" href="assets/css/comment.css" /> -->
+    <!-- Lightbox -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css"
+    />
+  </head>
+  <body>
+    <!-- ============================================================
+     AMPlOP PREMIUM COVER
+=============================================================== -->
+    <!-- <div id="envelopeScreen">
+      <div class="envelope-container">
+        <div class="env-back"></div>
+        <div class="env-card">
+          <b
+            class="env-title"
+            style="font-family: 'Great Vibes'; font-size: x-large"
+            >Kepada Yth.</b
+          >
+          <h3 id="namaTamu" class="env-name" style="text-align: center"></h3>
+        </div>
+        <div class="env-front"></div>
+        <div class="env-flap"></div>
+      </div>
+    </div> -->
+    <!-- <p class="env-time">Waktu Kehadiran: <b id="waktuTamu"></b></p> -->
+
+    <!-- ============================================================
+     SIDEBAR NAVIGATION
+=============================================================== -->
+    <div id="sidebarNav">
+      <div class="sidebar-item" data-target="#sectionHero">
+        <i class="fa-solid fa-house"></i> <span>Home</span>
+      </div>
+      <div class="sidebar-item" data-target="#sectionWaktu">
+        <i class="fa-solid fa-clock"></i> <span>Waktu</span>
+      </div>
+      <div class="sidebar-item" data-target="#sectionLokasi">
+        <i class="fa-solid fa-map"></i> <span>Lokasi</span>
+      </div>
+      <div class="sidebar-item" data-target="#sectionGallery">
+        <i class="fa-solid fa-image"></i> <span>Galeri</span>
+      </div>
+      <div class="sidebar-item" data-target="#sectionVideo">
+        <i class="fa-solid fa-video"></i> <span>Video</span>
+      </div>
+      <div class="sidebar-item" data-target="#sectionGift">
+        <i class="fa-solid fa-gift"></i> <span>Gift</span>
+      </div>
+      <div class="sidebar-item" data-target="#sectionKomentar">
+        <i class="fa-solid fa-comment"></i> <span>Ucapan</span>
+      </div>
+    </div>
+    <!-- ============================================================
+     SIDEBAR TOGGLE BUTTON
+=============================================================== -->
+    <div id="sidebarToggle" class="sidebar-toggle">
+      <i class="fa-solid fa-bars"></i>
+    </div>
+    <!-- ============================================================
+     MUSIC PLAYER FLOAT
+=============================================================== -->
+    <div id="musicBtn" class="music-floating">
+      <i class="fa-solid fa-music"></i>
+    </div>
+    <audio id="bgm" src="assets/music/default.mp3" loop></audio>
+    <!-- ============================================================
+     MAIN CONTAINER (SCROLL SNAP)
+=============================================================== -->
+    <div id="mainContainer">
+      <!-- ============================================================
+     HERO SECTION
+=============================================================== -->
+      <section id="sectionHero" class="snap-section fade-section">
+        <h1 class="title-script">Resepsi Pernikahan</h1>
+        <h2 class="title">Hafizh</h2>
+        <h2 class="title2">&</h2>
+        <h2 class="title" style="margin-bottom: 10px">Fira</h2>
+        <div
+          style="
+            font-size: large;
+            font-weight: 600;
+            margin-top: -10px;
+            text-align: center;
+          "
+        >
+          Hafizh Maulana, S.T <br />& drh. Shafira Salwa Salsabil
+        </div>
+        <div style="margin-top: 20px; font-size: 16px; text-align: center">
+          Sabtu, 23 Mei 2026 <br />
+          <!-- 10.00 WIB - Selesai -->
+          <b id="waktuTamu"></b>
+        </div>
+        <div
+          id="countdown"
+          style="margin-top: 35px; font-size: 22px; font-weight: 600"
+        ></div>
+      </section>
+
+      <!-- ============================================================
+     WAKTU ACARA
+=============================================================== -->
+      <section
+        id="sectionWaktu"
+        class="snap-section fade-section"
+        style="width: 100%"
+      >
+        <img
+          src="./assets/images/bismillah.png"
+          class="bismillah has-text-centered"
+          alt="Bismillahirrahmaanirrahiim"
+          style="width: 30%"
+        />
+        <p
+          class="bodytext aos-init aos-animate"
+          data-aos="fade-up"
+          data-aos-easing="linear"
+          style="text-align: center; margin-top: 20px; font-size: normal"
+        >
+          Assalamu'alaikum Warahmatullahi Wabarakatuh.
+          <br />
+          Dengan memohon rahmat dan ridha Allah swt,
+          <br />
+          kami bermaksud mengundang Bapak/Ibu/Saudara/Saudari
+          <b id="namaTamu" style="font-size: larger; margin-top: -10px"></b>
+          pada acara Resepsi kami yang akan dilaksanakan pada :
+        </p>
+
+        <h2 class="section-title" style="text-align: center">Waktu Acara</h2>
+        <div class="card-soft-full" style="width: 100%; margin-left: 0%">
+          <p><b>Hari:</b> Sabtu</p>
+          <p><b>Tanggal:</b> 23 Mei 2026</p>
+          <p><b>Waktu:</b> 10.00 WIB - Selesai</p>
+        </div>
+      </section>
+      <!-- ============================================================
+     LOKASI ACARA
+=============================================================== -->
+      <section id="sectionLokasi" class="snap-section fade-section">
+        <h2 class="section-title">Lokasi</h2>
+        <div class="card-soft">
+          <p style="line-height: 1.6; text-align: center">
+            Perumahan Dian Anyar Blok F2 No. 7 Kel. Ciseureuh Kec. Purwakarta,
+            Kab. Purwakarta, Jawa Barat
+          </p>
+          <div class="map-wrapper">
+            <!-- <iframe
+              class="map-item"
+              src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d247.7496104032725!2d107.46688536958047!3d-6.522468859800799!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sid!4v1774628250203!5m2!1sen!2sid"
+              
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            > -->
+            <iframe
+              class="map-item"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d990.9981745660999!2d107.46647816961979!3d-6.522603899591867!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e690de2a84cf3b9%3A0x696706430d583b99!2sJl.%20Perum%20Dian%20Anyar%202%20No.7%20blok%20F2%2C%20Ciseureuh%2C%20Kec.%20Purwakarta%2C%20Kabupaten%20Purwakarta%2C%20Jawa%20Barat%2041118!5e0!3m2!1sen!2sid!4v1774628586473!5m2!1sen!2sid"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+            <iframe
+              class="map-item"
+              src="https://www.google.com/maps/embed?pb=!4v1774627403217!6m8!1m7!1sZoEFjqLj7brqG0nZ8XkLBA!2m2!1d-6.522590464533257!2d107.4671149758358!3f79.40086045137286!4f-2.0409266566106083!5f0.7820865974627469"
+              allowfullscreen
+            >
+            </iframe>
+          </div>
+          <div style="text-align: center">
+            <a href="https://maps.app.goo.gl/RMjTX6ptxhWcuYG9A" target="_blank">
+              <button class="btn-primary mt-20">Buka Google Maps</button>
+            </a>
+          </div>
+        </div>
+      </section>
+      <!-- ============================================================
+     GALERI FOTO
+=============================================================== -->
+      <section id="sectionGallery" class="snap-section fade-section">
+        <h2 class="section-title">Galeri</h2>
+        <div class="gallery-scroll">
+          <div id="galleryMasonry" class="masonry-grid gallery-fade"></div>
+        </div>
+      </section>
+      <!-- ============================================================
+     VIDEO SECTION
+=============================================================== -->
+      <section id="sectionVideo" class="snap-section fade-section">
+        <h2 class="section-title">Video</h2>
+        <div class="card-soft">
+          <iframe
+            width="100%"
+            height="240"
+            src=""
+            style="border-radius: 12px"
+            allowfullscreen
+          >
+          </iframe>
+        </div>
+      </section>
+      <!-- ============================================================
+     GIFT SECTION
+=============================================================== -->
+      <section id="sectionGift" class="snap-section fade-section">
+        <h2 class="section-title">Gift</h2>
+        <div class="card-soft">
+          <p style="text-align: center; margin-bottom: 14px">
+            Jika Bapak/Ibu/Saudara ingin memberikan hadiah sebagai tanda kasih,
+            dapat melalui:
+          </p>
+          <div class="gift-scroll">
+            <div class="gift-track" id="giftTrack"></div>
+          </div>
+          <button id="giftToggle" class="btn-primary mt-20">Jeda</button>
+        </div>
+      </section>
+      <!-- ============================================================
+     KOMENTAR (CHATSTREAM LIVE)
+=============================================================== -->
+      <section id="sectionKomentar" class="snap-section fade-section">
+        <h2 class="section-title">Ucapan & Doa</h2>
+        <div class="chat-container">
+          <!-- FORM (LEFT) -->
+          <div class="chat-form card-soft">
+            <form id="formKomentar">
+              <label class="chat-label">Nama</label>
+              <input
+                id="komentarNama"
+                type="text"
+                readonly
+                class="chat-input"
+              />
+              <label class="chat-label">Ucapan</label>
+              <textarea
+                id="komentarPesan"
+                placeholder="Tulis ucapan..."
+                class="chat-textarea"
+              ></textarea>
+              <button class="btn-primary mt-20" type="submit">Kirim</button>
+            </form>
+            <div id="komentarStatus" class="chat-status"></div>
+          </div>
+          <!-- LIVE CHAT (RIGHT) -->
+          <div class="chat-live card-soft">
+            <div class="chat-wrapper">
+              <div id="liveKomentarList" class="chat-stream"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <!-- end mainContainer -->
+    <!-- ============================================================
+     FOOTER
+=============================================================== -->
+    <section class="section" style="text-align: center; opacity: 0.6">
+      <p>© 2026 Undangan Hafizh & Fira</p>
+      <p>Created with ❤️</p>
+    </section>
+    <!-- ===============================
+     SCRIPTS
+=============================== -->
+    <!-- Lightbox -->
+    <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+    <!-- Feature Scripts -->
+    <script src="assets/js/slug.js"></script>
+    <script src="assets/js/music.js"></script>
+    <script src="assets/js/bunga.js"></script>
+    <script src="assets/js/gallery.js"></script>
+    <script src="assets/js/komentar.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/sidebar.js"></script>
+    <script src="assets/js/envelope.js"></script>
+    <script src="assets/js/snap.js"></script>
+    <script src="assets/js/gift.js"></script>
+    <script src="assets/js/komentar.js"></script>
+  </body>
+</html>

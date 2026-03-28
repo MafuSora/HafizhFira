@@ -1,0 +1,32 @@
+[
+    {
+        "bank": "BCA",
+        "logo": "assets/img/bca.png",
+        "number": "23101246002",
+        "owner": "Hafizh Maulana"
+    },
+    {
+        "bank": "Krom",
+        "logo": "assets/img/krom.png",
+        "number": "7700 7070 7177",
+        "owner": "Hafizh Maulana"
+    },
+    {
+        "bank": "Dana",
+        "logo": "assets/img/dana.png",
+        "number": "081320644288",
+        "owner": "Shafira Salwa Salsabil"
+    },
+    {
+        "bank": "SeaBank",
+        "logo": "assets/img/seabank.png",
+        "number": "081320644288",
+        "owner": "Shafira Salwa Salsabil"
+    },
+    {
+        "bank": "Gopay",
+        "logo": "assets/img/gopay.png",
+        "number": "081320644288",
+        "owner": "Shafira Salwa Salsabil"
+    }
+]

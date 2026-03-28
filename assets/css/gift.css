@@ -1,0 +1,48 @@
+.gift-scroll {
+  width: 100%;
+  overflow: hidden;
+  padding: 10px 0;
+}
+.gift-track {
+  display: flex;
+  gap: 16px;
+  width: max-content;
+  animation: giftRun 35s linear infinite;
+}
+.gift-paused {
+  animation-play-state: paused;
+}
+/* GIFT CARD */
+.gift-card {
+  min-width: 220px;
+  background: #fff;
+  border-radius: 14px;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+  border: 1px solid rgba(0,0,0,0.08);
+}
+.gift-logo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+.gift-info h4 {
+  font-size: 16px;
+  margin: 0;
+}
+.gift-info p {
+  margin: 0;
+  font-size: 14px;
+}
+.gift-info small {
+  font-size: 12px;
+  opacity: .7;
+}
+/* SEAMLESS ANIMATION */
+@keyframes giftRun {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); } /* karena kita duplikasi data 2x */
+}

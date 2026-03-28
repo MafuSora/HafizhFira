@@ -1,0 +1,193 @@
+/* 🌸 Bunga Pastel Jatuh */
+.flower {
+  position: fixed;
+  top: -20px;
+  font-size: 14px;
+  opacity: 0.85;
+  pointer-events: none;
+  z-index: 9998;
+}
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+/* Lightbox Enhancement */
+.glightbox-clean .gslide-description {
+  font-size: 16px;
+  color: var(--text);
+}
+.glightbox-clean .gclose {
+  color: var(--accent);
+}
+/* Utillity Spacing */
+.section {
+  padding: 40px 16px;
+}
+.section-center {
+  text-align: center;
+}
+.mt-20 { margin-top: 20px; }
+.mt-30 { margin-top: 30px; }
+.mt-40 { margin-top: 40px; }
+.mb-20 { margin-bottom: 20px; }
+.mb-30 { margin-bottom: 30px; }
+.mb-40 { margin-bottom: 40px; }
+/* Gift Section animation (marquee) */
+.gift-marquee {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  box-sizing: border-box;
+  background: var(--secondary);
+  padding: 14px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+.gift-running {
+  display: inline-block;
+  padding-left: 100%;
+  animation: giftScroll 15s linear infinite;
+}
+.gift-paused {
+  animation-play-state: paused;
+}
+@keyframes giftScroll {
+  from { transform: translateX(0%); }
+  to { transform: translateX(-100%); }
+}
+
+
+
+/* ========================================
+   CHAT SECTION - LAYOUT
+======================================== */
+.chat-container {
+  display: grid;
+  grid-template-columns: 0.4fr 0.6fr;
+  gap: 30px;
+  width: 100%;
+  max-width: 980px;
+  margin: 30px auto;
+  align-items: flex-start;
+}
+/* ========================================
+   FORM (LEFT SIDE)
+======================================== */
+.chat-form {
+  padding: 24px 26px;
+}
+.chat-label {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: var(--text);
+}
+.chat-input,
+.chat-textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid #dcd4cf;
+  background: #fff;
+  margin-bottom: 14px;
+  font-size: 14px;
+  font-family: 'Poppins', sans-serif;
+}
+.chat-textarea {
+  height: 120px;
+  resize: none;
+}
+.chat-status {
+  margin-top: 10px;
+  text-align: center;
+  font-size: 14px;
+  opacity: 0.8;
+}
+/* ========================================
+   LIVE CHAT (RIGHT SIDE)
+======================================== */
+.chat-live {
+  padding: 0;
+}
+.chat-wrapper {
+  height: 340px;
+  padding: 16px;
+  overflow-y: auto;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(6px);
+}
+.chat-wrapper::-webkit-scrollbar {
+  width: 6px;
+}
+.chat-wrapper::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+}
+/* ========================================
+   CHAT MESSAGES
+======================================== */
+.chat-stream {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.chat-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: chatIn 0.45s ease forwards;
+}
+.chat-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: var(--secondary);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  flex-shrink: 0;
+}
+.chat-bubble {
+  background: #fff8f5;
+  border: 1px solid #f0e9e6;
+  padding: 12px 16px;
+  border-radius: 14px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  max-width: 100%;
+}
+.chat-name {
+  font-family: 'Great Vibes', cursive;
+  font-size: 18px;
+  color: var(--accent);
+  margin-bottom: 2px;
+}
+.chat-message {
+  font-size: 14px;
+  line-height: 1.45;
+  color: var(--text);
+  font-family: 'Poppins', sans-serif;
+}
+/* ========================================
+   ANIMATIONS
+======================================== */
+@keyframes chatIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* ========================================
+   RESPONSIVE
+======================================== */
+@media (max-width: 768px) {
+  .chat-container {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}

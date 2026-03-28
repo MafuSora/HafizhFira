@@ -1,0 +1,81 @@
+#envelopeScreen {
+  position: fixed;
+  inset: 0;
+  background: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+  transition: opacity .7s ease;
+}
+
+.envelope-hide {
+  opacity: 0;
+  pointer-events: none;
+}
+.envelope-container {
+  width: 320px;
+  height: 220px;
+  position: relative;
+  perspective: 1000px;
+}
+/* BACK */
+.env-back {
+  position: absolute;
+  inset: 0;
+  background: var(--accent);
+  border-radius: 8px;
+  z-index: 1;
+}
+/* CARD (start inside!) */
+.env-card {
+  position: absolute;
+  left: 8px;
+  bottom: 200px;
+  width: 85%;
+  background: white;
+  padding: 14px;
+  border-radius: 10px;
+  transform: translateY(100%);  /* START benar2 DI DALAM */
+  opacity: 0;
+  z-index: 5;
+  animation: cardUp 1.5s ease forwards;
+  animation-delay: 1.6s;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  align-items: center;
+  /* text-align: center; */
+}
+/* FRONT */
+.env-front {
+  position: absolute;
+  inset: 0;
+  background: var(--accent);
+  border-radius: 0px 0px 8px;
+  z-index: 10;
+}
+/* FLAP */
+.env-flap {
+  position: absolute;
+  top: -110px;
+  left: 0;
+  z-index: 15;
+  width: 0;
+  height: 0;
+  border-left: 160px solid transparent;
+  border-right: 160px solid transparent;
+  border-bottom: 110px solid var(--primary);
+  transform-origin: bottom;
+  transform: rotate(180deg);
+  animation: flapOpen 1s ease forwards;
+  animation-delay: .8s;
+}
+/* ANIMASI */
+@keyframes flapOpen {
+  0% { transform: rotateX(180deg); }
+  100% { transform: rotateX(0deg);z-index: 0; }
+}
+@keyframes cardUp {
+  0%   { transform: translateY(100%); opacity: 0; }
+  /* 40%  { opacity: 1; } */
+  100% { transform: translateY(-20%); opacity: 1; }
+}
