@@ -6,7 +6,7 @@
     <title>Undangan Resepsi Hafizh & Fira</title>
     <!-- Fonts -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Great+Vibes&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Great+Vibes&family=Playfair+Display:wght@400;600;700&display=swap"
       rel="stylesheet"
     />
     <!-- Icons -->
@@ -14,15 +14,8 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
-    <!-- CSS -->
-    <link rel="stylesheet" href="assets/css/theme.css" />
-    <link rel="stylesheet" href="assets/css/cover.css" />
-    <link rel="stylesheet" href="assets/css/effects.css" />
-    <link rel="stylesheet" href="assets/css/sidebar.css" />
-    <link rel="stylesheet" href="assets/css/snap.css" />
-    <link rel="stylesheet" href="assets/css/envelope.css" />
-    <link rel="stylesheet" href="assets/css/gift.css" />
-    <!-- <link rel="stylesheet" href="assets/css/comment.css" /> -->
+    <!-- CSS - HANYA 1 FILE! -->
+    <link rel="stylesheet" href="assets/css/style.css" />
     <!-- Lightbox -->
     <link
       rel="stylesheet"
@@ -31,21 +24,76 @@
   </head>
   <body>
     <!-- ============================================================
-     AMPlOP PREMIUM COVER
+     AMPLOP PREMIUM INTERACTIVE
 =============================================================== -->
     <div id="envelopeScreen">
-      <div class="envelope-container">
-        <div class="env-back"></div>
-        <div class="env-card">
-          <b
-            class="env-title"
-            style="font-family: 'Great Vibes'; font-size: x-large"
-            >Kepada Yth.</b
-          >
-          <h3 id="namaTamu" class="env-name" style="text-align: center"></h3>
+      <div class="envelope-scene">
+        <!-- Floating Hearts Background -->
+        <div class="hearts-float">
+          <span>💕</span>
+          <span>💕</span>
+          <span>💕</span>
+          <span>💕</span>
+          <span>💕</span>
+          <span>💕</span>
+          <span>💕</span>
+          <span>💕</span>
+          <span>💕</span>
+          <span>💕</span>
+          <span>💕</span>
+          <span>💕</span>
+          <span>💕</span>
+          <span>💕</span>
+          <span>💕</span>
+          <span>💕</span>
+          <span>💕</span>
+          <span>💕</span>
+          <span>💕</span>
+          <span>💕</span>
+          <span>💕</span>
+          <span>💕</span>
+          <span>💕</span>
+          <span>💕</span>
+          <span>💕</span>
+          <span>💕</span>
+          <span>💕</span>
+          <span>💕</span>
+          <span>💕</span>
+          <span>💕</span>
         </div>
-        <div class="env-front"></div>
-        <div class="env-flap"></div>
+        <!-- Envelope Container -->
+        <div class="envelope-container" id="envelopeBox">
+          <!-- Back Part -->
+          <div class="env-back"></div>
+          <!-- Card Inside -->
+          <div class="env-card" id="envelopeCard">
+            <div class="card-header">
+              <span class="card-icon">💌</span>
+              <h2 class="card-title">Kepada Yth.</h2>
+            </div>
+            <h3 id="namaTamu" class="card-name">Tamu Undangan</h3>
+            <p class="card-time">
+              <i class="fa-solid fa-clock"></i>
+              <span id="waktuTamu">10:00 WIB - Selesai</span>
+            </p>
+          </div>
+          <!-- Front Part -->
+          <div class="env-front"></div>
+          <!-- Flap -->
+          <div class="env-flap"></div>
+        </div>
+        <!-- Interactive Button -->
+        <button id="btnOpenEnvelope" class="btn-open-envelope">
+          <span class="btn-text">Buka Undangan</span>
+          <span class="btn-icon">
+            <i class="fa-solid fa-hand-pointer"></i>
+          </span>
+        </button>
+        <!-- Instructions -->
+        <p class="envelope-instruction">
+          <i class="fa-solid fa-hand-point-up"></i>
+          Ketuk tombol untuk membuka undangan
+        </p>
       </div>
     </div>
     <!-- <p class="env-time">Waktu Kehadiran: <b id="waktuTamu"></b></p> -->
@@ -53,35 +101,58 @@
     <!-- ============================================================
      SIDEBAR NAVIGATION
 =============================================================== -->
+    <!-- ============================================================
+     SIDEBAR NAVIGATION
+=============================================================== -->
     <div id="sidebarNav">
       <div class="sidebar-item" data-target="#sectionHero">
-        <i class="fa-solid fa-house"></i> <span>Home</span>
+        <i class="fa-solid fa-heart"></i>
+        <!-- ✅ UBAH: dari fa-house -->
+        <span>Home</span>
       </div>
       <div class="sidebar-item" data-target="#sectionWaktu">
-        <i class="fa-solid fa-clock"></i> <span>Waktu</span>
+        <span style="font-size: 18px; color: black">👫</span>
+        <!-- Couple -->
+        <span>Mempelai</span>
       </div>
       <div class="sidebar-item" data-target="#sectionLokasi">
-        <i class="fa-solid fa-map"></i> <span>Lokasi</span>
+        <i class="fa-solid fa-location-dot"></i>
+        <!-- ✅ KEEP -->
+        <span>Lokasi</span>
       </div>
       <div class="sidebar-item" data-target="#sectionGallery">
-        <i class="fa-solid fa-image"></i> <span>Galeri</span>
+        <i class="fa-solid fa-images"></i>
+        <!-- ✅ UBAH: dari fa-image (plural) -->
+        <span>Galeri</span>
       </div>
       <div class="sidebar-item" data-target="#sectionVideo">
-        <i class="fa-solid fa-video"></i> <span>Video</span>
+        <i class="fa-solid fa-film"></i>
+        <!-- ✅ UBAH: dari fa-video -->
+        <span>Video</span>
       </div>
       <div class="sidebar-item" data-target="#sectionGift">
-        <i class="fa-solid fa-gift"></i> <span>Gift</span>
+        <i class="fa-solid fa-gift"></i>
+        <!-- ✅ KEEP -->
+        <span>Gift</span>
       </div>
       <div class="sidebar-item" data-target="#sectionKomentar">
-        <i class="fa-solid fa-comment"></i> <span>Ucapan</span>
+        <i class="fa-solid fa-comments"></i>
+        <!-- ✅ UBAH: dari fa-comment (plural) -->
+        <span>Ucapan</span>
+      </div>
+      <div class="sidebar-item" data-target="#sectionKonfirmasi">
+        <i class="fa-solid fa-check"></i>
+        <!-- ✅ UBAH: dari fa-comment (plural) -->
+        <span>Konfirmasi</span>
       </div>
     </div>
     <!-- ============================================================
      SIDEBAR TOGGLE BUTTON
 =============================================================== -->
-    <div id="sidebarToggle" class="sidebar-toggle">
-      <i class="fa-solid fa-bars"></i>
-    </div>
+
+    <button id="sidebarToggle" class="sidebar-toggle-btn">
+      <i class="fa-solid fa-chevron-left"></i>
+    </button>
     <!-- ============================================================
      MUSIC PLAYER FLOAT
 =============================================================== -->
@@ -93,6 +164,10 @@
      MAIN CONTAINER (SCROLL SNAP)
 =============================================================== -->
     <div id="mainContainer">
+      <!-- ✅ OPTIONAL: Scroll Indicator -->
+      <div class="scroll-indicator" id="scrollIndicator">
+        <i class="fa-solid fa-chevron-down"></i>
+      </div>
       <!-- ============================================================
      HERO SECTION
 =============================================================== -->
@@ -116,87 +191,251 @@
           <!-- 10.00 WIB - Selesai -->
           <b id="waktuTamu"></b>
         </div>
-        <div
-          id="countdown"
-          style="margin-top: 35px; font-size: 22px; font-weight: 600"
-        ></div>
+        <div class="event-countdown">
+          <div class="countdown-item">
+            <span id="days" class="countdown-number">00</span>
+            <span class="countdown-label">Hari</span>
+          </div>
+          <div class="countdown-item">
+            <span id="hours" class="countdown-number">00</span>
+            <span class="countdown-label">Jam</span>
+          </div>
+          <div class="countdown-item">
+            <span id="minutes" class="countdown-number">00</span>
+            <span class="countdown-label">Menit</span>
+          </div>
+          <div class="countdown-item">
+            <span id="seconds" class="countdown-number">00</span>
+            <span class="countdown-label">Detik</span>
+          </div>
+        </div>
       </section>
 
       <!-- ============================================================
-     WAKTU ACARA
+     SECTION WAKTU + MEMPELAI (COMBINED)
 =============================================================== -->
-      <section
-        id="sectionWaktu"
-        class="snap-section fade-section"
-        style="width: 100%"
-      >
-        <img
-          src="./assets/images/bismillah.png"
-          class="bismillah has-text-centered"
-          alt="Bismillahirrahmaanirrahiim"
-          style="width: 30%"
-        />
-        <p
-          class="bodytext aos-init aos-animate"
-          data-aos="fade-up"
-          data-aos-easing="linear"
-          style="text-align: center; margin-top: 20px; font-size: normal"
-        >
-          Assalamu'alaikum Warahmatullahi Wabarakatuh.
-          <br />
-          Dengan memohon rahmat dan ridha Allah swt,
-          <br />
-          kami bermaksud mengundang Bapak/Ibu/Saudara/Saudari
-          <b id="namaTamu" style="font-size: larger; margin-top: -10px"></b>
-          pada acara Resepsi kami yang akan dilaksanakan pada :
-        </p>
-
-        <h2 class="section-title" style="text-align: center">Waktu Acara</h2>
-        <div class="card-soft-full" style="width: 100%; margin-left: 0%">
-          <p><b>Hari:</b> Sabtu</p>
-          <p><b>Tanggal:</b> 23 Mei 2026</p>
-          <p><b>Waktu:</b> 10.00 WIB - Selesai</p>
+      <section id="sectionWaktu" class="snap-section fade-section">
+        <!-- ✅ PART 1: BISMILLAH & SALAM PEMBUKA -->
+        <div class="waktu-intro">
+          <img
+            src="./assets/images/bismillah.png"
+            class="bismillah2"
+            alt="Bismillahirrahmaanirrahiim"
+            style="width: 50%"
+          />
+          <p class="bodytext">
+            Assalamu'alaikum Warahmatullahi Wabarakatuh.
+            <br />
+            Dengan memohon rahmat dan ridha Allah SWT,
+            <br />
+            kami bermaksud mengundang Bapak/Ibu/Saudara/Saudari
+            <br />
+            <b id="namaTamu" class="highlight-name">Tamu Undangan</b>
+            untuk menghadiri acara pernikahan kami:
+          </p>
         </div>
+        <!-- ✅ DIVIDER -->
+        <!-- <div class="section-divider">
+          <span>💕</span>
+        </div> -->
+        <!-- ✅ PART 2: PROFIL MEMPELAI -->
+        <h2 class="section-title">Mempelai</h2>
+        <div class="mempelai-container">
+          <!-- BRIDE (KIRI) -->
+          <div class="mempelai-card bride-card">
+            <div class="mempelai-header">
+              <!-- <span class="mempelai-icon">👰</span> -->
+              <h3 class="mempelai-label">👰 Mempelai Wanita 👰</h3>
+            </div>
+            <div class="mempelai-content">
+              <h2 class="mempelai-name">drh. Shafira Salwa Salsabil</h2>
+              <!-- <p class="mempelai-title">drh. Shafira Salwa Salsabil</p> -->
+              <div class="mempelai-divider"></div>
+              <p class="mempelai-desc">Putri dari:</p>
+              <p class="mempelai-parents">
+                <strong>Bapak Dr. Ahmad Firmansyah</strong>
+                <br />&amp;<br />
+                <strong>Ibu Siti Nurhaliza</strong>
+              </p>
+              <a
+                href="https://instagram.com/shafira"
+                target="_blank"
+                class="mempelai-social"
+              >
+                <i class="fa-brands fa-instagram"></i>
+                @shafira.salwa
+              </a>
+            </div>
+          </div>
+          <!-- FOTO TENGAH -->
+          <div class="mempelai-photo-wrapper">
+            <div class="mempelai-photo-frame">
+              <img
+                src="./assets/images/couple/together.jpg"
+                alt="Hafizh & Fira"
+                class="mempelai-photo"
+              />
+              <div class="photo-overlay">
+                <span class="photo-ampersand">&amp;</span>
+              </div>
+            </div>
+            <!-- <div class="photo-decoration">
+              <span>💕</span>
+            </div> -->
+          </div>
+          <!-- GROOM (KANAN) -->
+          <div class="mempelai-card groom-card">
+            <div class="mempelai-header">
+              <!-- <span class="mempelai-icon">🤵</span> -->
+              <h3 class="mempelai-label">🤵 Mempelai Pria 🤵</h3>
+            </div>
+            <div class="mempelai-content">
+              <h2 class="mempelai-name">Hafizh Maulana, S.T</h2>
+              <!-- <p class="mempelai-title">Hafizh Maulana, S.T</p> -->
+              <div class="mempelai-divider"></div>
+              <p class="mempelai-desc">Putra dari:</p>
+              <p class="mempelai-parents">
+                <strong>Bapak Ir. Budi Santoso</strong>
+                <br />&amp;<br />
+                <strong>Ibu Ani Wijaya</strong>
+              </p>
+              <a
+                href="https://instagram.com/hafizh"
+                target="_blank"
+                class="mempelai-social"
+              >
+                <i class="fa-brands fa-instagram"></i>
+                @hafizh.maulana
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- ✅ DIVIDER -->
+        <!-- <div class="section-divider">
+          <span>💕</span>
+        </div> -->
       </section>
+
+      <!-- <section id="sectionWaktu" class="snap-section fade-section"></section> -->
       <!-- ============================================================
      LOKASI ACARA
 =============================================================== -->
+      <!-- ============================================================
+     SECTION WAKTU & LOKASI (ELEGANT)
+=============================================================== -->
       <section id="sectionLokasi" class="snap-section fade-section">
-        <h2 class="section-title">Lokasi</h2>
-        <div class="card-soft">
-          <p style="line-height: 1.6; text-align: center">
-            Perumahan Dian Anyar Blok F2 No. 7 Kel. Ciseureuh Kec. Purwakarta,
-            Kab. Purwakarta, Jawa Barat
-          </p>
-          <div class="map-wrapper">
-            <!-- <iframe
-              class="map-item"
-              src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d247.7496104032725!2d107.46688536958047!3d-6.522468859800799!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sid!4v1774628250203!5m2!1sen!2sid"
-              
-              allowfullscreen=""
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-            > -->
-            <iframe
-              class="map-item"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d990.9981745660999!2d107.46647816961979!3d-6.522603899591867!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e690de2a84cf3b9%3A0x696706430d583b99!2sJl.%20Perum%20Dian%20Anyar%202%20No.7%20blok%20F2%2C%20Ciseureuh%2C%20Kec.%20Purwakarta%2C%20Kabupaten%20Purwakarta%2C%20Jawa%20Barat%2041118!5e0!3m2!1sen!2sid!4v1774628586473!5m2!1sen!2sid"
-              allowfullscreen=""
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-            ></iframe>
-            <iframe
-              class="map-item"
-              src="https://www.google.com/maps/embed?pb=!4v1774627403217!6m8!1m7!1sZoEFjqLj7brqG0nZ8XkLBA!2m2!1d-6.522590464533257!2d107.4671149758358!3f79.40086045137286!4f-2.0409266566106083!5f0.7820865974627469"
-              allowfullscreen
-            >
-            </iframe>
+        <h2 class="section-title">Waktu & Tempat Acara</h2>
+        <p class="section-subtitle">Insya Allah akan dilaksanakan pada:</p>
+        <div class="event-container">
+          <!-- ✅ CARD 1: WAKTU ACARA -->
+          <div class="event-card event-time">
+            <div class="event-icon-wrapper">
+              <div class="event-icon">
+                <i class="fa-regular fa-calendar-days"></i>
+              </div>
+            </div>
+            <div class="event-content">
+              <h3 class="event-title">Waktu Acara</h3>
+              <div class="event-divider"></div>
+              <div class="event-detail">
+                <span class="detail-label">Hari</span>
+                <span class="detail-value">Sabtu</span>
+              </div>
+              <div class="event-detail">
+                <span class="detail-label">Tanggal</span>
+                <span class="detail-value">23 Mei 2026</span>
+              </div>
+              <div class="event-detail">
+                <span class="detail-label">Pukul</span>
+                <span class="detail-value" id="waktuTamu"
+                  >10.00 WIB - Selesai</span
+                >
+              </div>
+              <!-- Countdown -->
+              <div class="event-countdown">
+                <div class="countdown-item">
+                  <span id="days" class="countdown-number">00</span>
+                  <span class="countdown-label">Hari</span>
+                </div>
+                <div class="countdown-item">
+                  <span id="hours" class="countdown-number">00</span>
+                  <span class="countdown-label">Jam</span>
+                </div>
+                <div class="countdown-item">
+                  <span id="minutes" class="countdown-number">00</span>
+                  <span class="countdown-label">Menit</span>
+                </div>
+                <div class="countdown-item">
+                  <span id="seconds" class="countdown-number">00</span>
+                  <span class="countdown-label">Detik</span>
+                </div>
+              </div>
+            </div>
           </div>
-          <div style="text-align: center">
-            <a href="https://maps.app.goo.gl/RMjTX6ptxhWcuYG9A" target="_blank">
-              <button class="btn-primary mt-20">Buka Google Maps</button>
-            </a>
+          <!-- ✅ CARD 2: LOKASI ACARA -->
+          <div class="event-card event-location">
+            <div class="event-icon-wrapper">
+              <div class="event-icon">
+                <i class="fa-solid fa-location-dot"></i>
+              </div>
+            </div>
+            <div class="event-content">
+              <h3 class="event-title">Tempat Acara</h3>
+              <div class="event-divider"></div>
+              <div class="location-address">
+                <p>
+                  <strong style="margin-bottom: -10px"
+                    >Perumahan Dian Anyar</strong
+                  ><br />
+                  Blok F2 No. 7<br />
+                  Kel. Ciseureuh, Kec. Purwakarta<br />
+                  Kabupaten Purwakarta, Jawa Barat
+                </p>
+              </div>
+              <!-- Maps -->
+              <div class="map-preview">
+                <iframe
+                  class="map-frame"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d990.9981745660999!2d107.46647816961979!3d-6.522603899591867!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e690de2a84cf3b9%3A0x696706430d583b99!2sJl.%20Perum%20Dian%20Anyar%202%20No.7%20blok%20F2%2C%20Ciseureuh%2C%20Kec.%20Purwakarta%2C%20Kabupaten%20Purwakarta%2C%20Jawa%20Barat%2041118!5e0!3m2!1sen!2sid!4v1774628586473!5m2!1sen!2sid"
+                  allowfullscreen
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                ></iframe>
+                <iframe
+                  class="map-frame"
+                  src="https://www.google.com/maps/embed?pb=!4v1774627403217!6m8!1m7!1sZoEFjqLj7brqG0nZ8XkLBA!2m2!1d-6.522590464533257!2d107.4671149758358!3f79.40086045137286!4f-2.0409266566106083!5f0.7820865974627469"
+                  allowfullscreen
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                ></iframe>
+              </div>
+              <a
+                href="https://maps.app.goo.gl/RMjTX6ptxhWcuYG9A"
+                target="_blank"
+                class="btn-location"
+              >
+                <i class="fa-solid fa-diamond-turn-right"></i>
+                <span>Buka di Google Maps</span>
+              </a>
+            </div>
           </div>
         </div>
+        <!-- ✅ OPTIONAL: Street View -->
+        <!-- <div class="street-view-wrapper">
+          <h3 class="street-view-title">Tampak Depan Lokasi</h3>
+          <div class="street-view-frame">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!4v1774627403217!6m8!1m7!1sZoEFjqLj7brqG0nZ8XkLBA!2m2!1d-6.522590464533257!2d107.4671149758358!3f79.40086045137286!4f-2.0409266566106083!5f0.7820865974627469"
+              allowfullscreen
+              loading="lazy"
+            ></iframe>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d990.9981745660999!2d107.46647816961979!3d-6.522603899591867!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e690de2a84cf3b9%3A0x696706430d583b99!2sJl.%20Perum%20Dian%20Anyar%202%20No.7%20blok%20F2%2C%20Ciseureuh%2C%20Kec.%20Purwakarta%2C%20Kabupaten%20Purwakarta%2C%20Jawa%20Barat%2041118!5e0!3m2!1sen!2sid!4v1774628586473!5m2!1sen!2sid"
+              allowfullscreen
+              loading="lazy"
+            ></iframe>
+          </div>
+        </div> -->
       </section>
       <!-- ============================================================
      GALERI FOTO
@@ -242,33 +481,115 @@
       <!-- ============================================================
      KOMENTAR (CHATSTREAM LIVE)
 =============================================================== -->
+      <!-- ============================================================
+     SECTION UCAPAN & DOA (ELEGANT)
+=============================================================== -->
       <section id="sectionKomentar" class="snap-section fade-section">
-        <h2 class="section-title">Ucapan & Doa</h2>
-        <div class="chat-container">
-          <!-- FORM (LEFT) -->
-          <div class="chat-form card-soft">
-            <form id="formKomentar">
-              <label class="chat-label">Nama</label>
-              <input
-                id="komentarNama"
-                type="text"
-                readonly
-                class="chat-input"
-              />
-              <label class="chat-label">Ucapan</label>
-              <textarea
-                id="komentarPesan"
-                placeholder="Tulis ucapan..."
-                class="chat-textarea"
-              ></textarea>
-              <button class="btn-primary mt-20" type="submit">Kirim</button>
-            </form>
-            <div id="komentarStatus" class="chat-status"></div>
+        <h2 id="sectionKonfirmasi" class="section-title">
+          Ucapan & Konfirmasi Kehadiran
+        </h2>
+
+        <p class="section-subtitle">
+          Kehadiran dan doa restu dari Bapak/Ibu/Saudara/i merupakan kebahagiaan
+          bagi kami. Mohon konfirmasikan kehadiran Anda.
+        </p>
+        <div class="wishes-container">
+          <!-- ✅ CARD 1: FORM UCAPAN -->
+          <div class="wishes-card wishes-form-card">
+            <div class="wishes-icon-wrapper">
+              <div class="wishes-icon">
+                <i class="fa-solid fa-pen-fancy"></i>
+              </div>
+            </div>
+            <div class="wishes-content">
+              <h3 class="wishes-title">Tulis Ucapan</h3>
+              <div class="wishes-divider"></div>
+              <form id="formKomentar" class="wishes-form">
+                <div class="form-group">
+                  <label class="form-label">
+                    <i class="fa-solid fa-user"></i>
+                    <span>Nama Anda</span>
+                  </label>
+                  <input
+                    id="komentarNama"
+                    type="text"
+                    readonly
+                    class="form-input"
+                    placeholder="Nama Anda"
+                  />
+                </div>
+                <!-- ✅ TAMBAHKAN INI - Konfirmasi Kehadiran -->
+                <div class="form-group">
+                  <label class="form-label">
+                    <i class="fa-solid fa-calendar-check"></i>
+                    <span>Konfirmasi Kehadiran</span>
+                  </label>
+                  <div class="attendance-options">
+                    <label class="attendance-option">
+                      <input
+                        type="radio"
+                        name="kehadiran"
+                        value="hadir"
+                        checked
+                      />
+                      <span class="attendance-icon hadir">✅</span>
+                      <span class="attendance-text">Hadir</span>
+                    </label>
+                    <label class="attendance-option">
+                      <input
+                        type="radio"
+                        name="kehadiran"
+                        value="tidak-hadir"
+                      />
+                      <span class="attendance-icon tidak-hadir">❌</span>
+                      <span class="attendance-text">Tidak Hadir</span>
+                    </label>
+                    <label class="attendance-option">
+                      <input type="radio" name="kehadiran" value="belum-tahu" />
+                      <span class="attendance-icon belum-tahu">❓</span>
+                      <span class="attendance-text">Belum Tahu</span>
+                    </label>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">
+                    <i class="fa-solid fa-heart"></i>
+                    <span>Ucapan & Doa</span>
+                  </label>
+                  <textarea
+                    id="komentarPesan"
+                    placeholder="Tulis ucapan dan doa terbaik untuk kami..."
+                    class="form-textarea"
+                    rows="5"
+                  ></textarea>
+                </div>
+                <button class="btn-submit" type="submit">
+                  <i class="fa-solid fa-paper-plane"></i>
+                  <span>Kirim Ucapan</span>
+                </button>
+              </form>
+              <div id="komentarStatus" class="form-status"></div>
+            </div>
           </div>
-          <!-- LIVE CHAT (RIGHT) -->
-          <div class="chat-live card-soft">
-            <div class="chat-wrapper">
-              <div id="liveKomentarList" class="chat-stream"></div>
+          <!-- ✅ CARD 2: LIVE UCAPAN -->
+          <div class="wishes-card wishes-live-card">
+            <div class="wishes-icon-wrapper">
+              <div class="wishes-icon">
+                <i class="fa-solid fa-comments"></i>
+              </div>
+            </div>
+            <div class="wishes-content">
+              <h3 class="wishes-title">Ucapan Tamu</h3>
+              <div class="wishes-divider"></div>
+              <div class="wishes-live-wrapper">
+                <div id="liveKomentarList" class="wishes-stream"></div>
+              </div>
+              <div class="wishes-footer">
+                <p class="wishes-count">
+                  <i class="fa-solid fa-message"></i>
+                  <span id="wishesCount">0</span> Ucapan
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -287,17 +608,7 @@
 =============================== -->
     <!-- Lightbox -->
     <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
-    <!-- Feature Scripts -->
-    <script src="assets/js/slug.js"></script>
-    <script src="assets/js/music.js"></script>
-    <script src="assets/js/bunga.js"></script>
-    <script src="assets/js/gallery.js"></script>
-    <script src="assets/js/komentar.js"></script>
-    <script src="assets/js/main.js"></script>
-    <script src="assets/js/sidebar.js"></script>
-    <script src="assets/js/envelope.js"></script>
-    <script src="assets/js/snap.js"></script>
-    <script src="assets/js/gift.js"></script>
-    <script src="assets/js/komentar.js"></script>
+    <!-- Main Script - ALL IN ONE -->
+    <script src="assets/js/main2.js"></script>
   </body>
 </html>
