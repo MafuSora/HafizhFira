@@ -3096,12 +3096,62 @@ button:disabled, input:disabled, textarea:disabled {
 /* ========================================
    📦 WISHES CONTAINER
 ======================================== */
+/* ========================================
+   💬 WISHES CONTAINER - RESPONSIVE
+======================================== */
 .wishes-container {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, 1fr); /* ✅ Desktop: 2 kolom */
   gap: 30px;
   max-width: 100%;
   margin: 0 auto;
+}
+/* ========================================
+   📱 MOBILE: STACK VERTIKAL
+======================================== */
+@media (max-width: 992px) {
+  .wishes-container {
+    grid-template-columns: 1fr; /* ✅ MOBILE: 1 kolom */
+    gap: 24px;
+  }
+  .wishes-card {
+    max-width: 700px;
+    margin: 0 auto;
+    width: 100%;
+  }
+  /* ✅ FORM di atas */
+  .wishes-form-card {
+    order: 1;
+  }
+  /* ✅ LIVE STREAM di bawah */
+  .wishes-live-card {
+    order: 2;
+  }
+  .wishes-live-wrapper {
+    max-height: 400px; /* ✅ Biar ga terlalu panjang */
+  }
+}
+@media (max-width: 768px) {
+  .wishes-container {
+    gap: 20px;
+  }
+  .wishes-card {
+    padding: 32px 24px;
+  }
+  .wishes-live-wrapper {
+    max-height: 350px;
+  }
+}
+@media (max-width: 480px) {
+  .wishes-container {
+    gap: 16px;
+  }
+  .wishes-card {
+    padding: 28px 20px;
+  }
+  .wishes-live-wrapper {
+    max-height: 300px;
+  }
 }
 /* ========================================
    🎴 WISHES CARD
@@ -3768,16 +3818,11 @@ iframe {
 /* ========================================
    📱 MOBILE OPTIMIZED CLASS
 ======================================== */
-.mobile-optimized * {
+/* .mobile-optimized * {
   animation-duration: 0.3s !important;
   transition-duration: 0.3s !important;
-}
-.mobile-optimized .flower {
-  display: none !important; /* Hide floating flowers */
-}
-.mobile-optimized .hearts-float {
-  display: none !important; /* Hide floating hearts on envelope */
-}
+} */
+
 
 /* ========================================
    🍎 iOS SAFARI SMOOTH SCROLL

@@ -973,29 +973,29 @@ window.WeddingApp = {
 /* ===============================
    📱 MOBILE OPTIMIZATION
 =============================== */
-(function optimizeMobile() {
-  const isMobile =
-    /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-      navigator.userAgent,
-    );
-  if (isMobile) {
-    console.log('📱 Mobile detected - Optimizing...');
-    // ✅ Disable floating flowers (heavy animation)
-    const flowerInterval = window.setInterval(function () {}, 0);
-    const highestId = window.setTimeout(function () {
-      for (let i = highestId; i >= 0; i--) {
-        window.clearInterval(i);
-      }
-    }, 0);
-    // ✅ Reduce gallery refresh rate
-    document.addEventListener('DOMContentLoaded', function () {
-      const galleryFade = document.getElementById('galleryMasonry');
-      if (galleryFade) {
-        // Stop auto shuffle on mobile
-        galleryFade.style.transition = 'none';
-      }
-    });
-    // ✅ Simplify animations
-    document.body.classList.add('mobile-optimized');
-  }
-})();
+// (function optimizeMobile() {
+//   const isMobile =
+//     /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+//       navigator.userAgent,
+//     );
+//   if (isMobile) {
+//     console.log('📱 Mobile detected - Optimizing...');
+//     // ✅ Disable floating flowers (heavy animation)
+//     const flowerInterval = window.setInterval(function () {}, 0);
+//     const highestId = window.setTimeout(function () {
+//       for (let i = highestId; i >= 0; i--) {
+//         window.clearInterval(i);
+//       }
+//     }, 0);
+//     // ✅ Reduce gallery refresh rate
+//     document.addEventListener('DOMContentLoaded', function () {
+//       const galleryFade = document.getElementById('galleryMasonry');
+//       if (galleryFade) {
+//         // Stop auto shuffle on mobile
+//         galleryFade.style.transition = 'none';
+//       }
+//     });
+//     // ✅ Simplify animations
+//     document.body.classList.add('mobile-optimized');
+//   }
+// })();
