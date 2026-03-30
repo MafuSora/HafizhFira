@@ -945,28 +945,57 @@ window.WeddingApp = {
 /* ===============================
    MOBILE SCROLL FIX
 =============================== */
-(function fixMobileScroll() {
-  const container = document.getElementById('mainContainer');
-  if (!container) return;
-  // ✅ Force touch scroll
-  let touchStartY = 0;
-  let scrollStartY = 0;
-  container.addEventListener(
-    'touchstart',
-    function (e) {
-      touchStartY = e.touches[0].clientY;
-      scrollStartY = container.scrollTop;
-    },
-    { passive: true },
-  );
-  container.addEventListener(
-    'touchmove',
-    function (e) {
-      const touchY = e.touches[0].clientY;
-      const deltaY = touchStartY - touchY;
-      container.scrollTop = scrollStartY + deltaY;
-    },
-    { passive: true },
-  );
-  console.log('✅ Mobile scroll enabled');
+// (function fixMobileScroll() {
+//   const container = document.getElementById('mainContainer');
+//   if (!container) return;
+//   // ✅ Force touch scroll
+//   let touchStartY = 0;
+//   let scrollStartY = 0;
+//   container.addEventListener(
+//     'touchstart',
+//     function (e) {
+//       touchStartY = e.touches[0].clientY;
+//       scrollStartY = container.scrollTop;
+//     },
+//     { passive: true },
+//   );
+//   container.addEventListener(
+//     'touchmove',
+//     function (e) {
+//       const touchY = e.touches[0].clientY;
+//       const deltaY = touchStartY - touchY;
+//       container.scrollTop = scrollStartY + deltaY;
+//     },
+//     { passive: true },
+//   );
+//   console.log('✅ Mobile scroll enabled');
+// })();
+/* ===============================
+   📱 MOBILE OPTIMIZATION
+=============================== */
+(function optimizeMobile() {
+  const isMobile =
+    /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+      navigator.userAgent,
+    );
+  if (isMobile) {
+    console.log('📱 Mobile detected - Optimizing...');
+    // ✅ Disable floating flowers (heavy animation)
+    const flowerInterval = window.setInterval(function () {}, 0);
+    const highestId = window.setTimeout(function () {
+      for (let i = highestId; i >= 0; i--) {
+        window.clearInterval(i);
+      }
+    }, 0);
+    // ✅ Reduce gallery refresh rate
+    document.addEventListener('DOMContentLoaded', function () {
+      const galleryFade = document.getElementById('galleryMasonry');
+      if (galleryFade) {
+        // Stop auto shuffle on mobile
+        galleryFade.style.transition = 'none';
+      }
+    });
+    // ✅ Simplify animations
+    document.body.classList.add('mobile-optimized');
+  }
 })();

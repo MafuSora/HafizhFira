@@ -66,18 +66,53 @@ html {
     height: auto;
     position: relative;
   }
-  #mainContainer {
-    overflow-y: auto; /* ✅ Force scroll */
-    overflow-x: hidden;
-    height: 100vh;
-    -webkit-overflow-scrolling: touch;
-    position: relative;
-    scroll-behavior: smooth;
-  }
+  /* ========================================
+   📄 MAIN CONTAINER - SMOOTH SCROLL
+======================================== */
+#mainContainer {
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: 100vh;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch; /* iOS momentum scroll */
+  /* ✅ GPU ACCELERATION */
+  transform: translateZ(0);
+  will-change: scroll-position;
+  backface-visibility: hidden;
+  perspective: 1000px;
+  /* ✅ SMOOTH RENDERING */
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+/* ========================================
+   📄 SECTIONS - GPU OPTIMIZATION
+======================================== */
+.snap-section {
+  padding: 80px 20px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow-x: hidden;
+  max-width: 100vw;
+  /* ✅ GPU ACCELERATION */
+  transform: translateZ(0);
+  will-change: transform;
+  backface-visibility: hidden;
+}
+/* ✅ REDUCE PAINT di Mobile */
+@media (max-width: 768px) {
   .snap-section {
-    min-height: auto; /* ✅ Ga force full height */
     padding: 60px 16px;
+    min-height: auto;
   }
+  /* Simplify animations on mobile */
+  .snap-section * {
+    animation-duration: 0.3s !important; /* Faster animations */
+  }
+}
   #sectionHero {
     min-height: 100vh; /* ✅ Hero tetap full */
   }
@@ -872,16 +907,24 @@ body {
 }
 
 /* ========================================
-   ✨ FADE IN ANIMATIONS
+   ✨ FADE IN ANIMATIONS - OPTIMIZED
 ======================================== */
 .fade-section {
   opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transform: translateY(20px); /* ✅ Reduce dari 30px */
+  transition: opacity 0.4s ease, transform 0.4s ease; /* ✅ Lebih cepat */
 }
 .fade-section.visible {
   opacity: 1;
   transform: translateY(0);
+}
+/* ✅ DISABLE HEAVY ANIMATIONS di Mobile */
+@media (max-width: 768px) {
+  .fade-section {
+    opacity: 1; /* Skip fade animation */
+    transform: none;
+    transition: none;
+  }
 }
 /* ========================================
    🌸 FLOATING FLOWERS
@@ -3719,5 +3762,45 @@ iframe {
 @media (max-width: 768px) {
   .scroll-indicator {
     bottom: 80px; /* Above sidebar */
+  }
+}
+
+/* ========================================
+   📱 MOBILE OPTIMIZED CLASS
+======================================== */
+.mobile-optimized * {
+  animation-duration: 0.3s !important;
+  transition-duration: 0.3s !important;
+}
+.mobile-optimized .flower {
+  display: none !important; /* Hide floating flowers */
+}
+.mobile-optimized .hearts-float {
+  display: none !important; /* Hide floating hearts on envelope */
+}
+
+/* ========================================
+   🍎 iOS SAFARI SMOOTH SCROLL
+======================================== */
+@supports (-webkit-touch-callout: none) {
+  html {
+    height: -webkit-fill-available;
+  }
+  body {
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+  }
+  #mainContainer {
+    height: 100vh;
+    height: -webkit-fill-available;
+    overflow-y: scroll; /* ✅ UBAH: dari auto ke scroll */
+    -webkit-overflow-scrolling: touch;
+    /* ✅ iOS MOMENTUM SCROLL */
+    scroll-behavior: auto; /* Disable smooth di iOS, pakai native momentum */
+  }
+  /* ✅ FORCE MOMENTUM */
+  .snap-section {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
   }
 }
