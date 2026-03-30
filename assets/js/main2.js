@@ -942,3 +942,31 @@ window.WeddingApp = {
     });
   });
 })();
+/* ===============================
+   MOBILE SCROLL FIX
+=============================== */
+(function fixMobileScroll() {
+  const container = document.getElementById('mainContainer');
+  if (!container) return;
+  // ✅ Force touch scroll
+  let touchStartY = 0;
+  let scrollStartY = 0;
+  container.addEventListener(
+    'touchstart',
+    function (e) {
+      touchStartY = e.touches[0].clientY;
+      scrollStartY = container.scrollTop;
+    },
+    { passive: true },
+  );
+  container.addEventListener(
+    'touchmove',
+    function (e) {
+      const touchY = e.touches[0].clientY;
+      const deltaY = touchStartY - touchY;
+      container.scrollTop = scrollStartY + deltaY;
+    },
+    { passive: true },
+  );
+  console.log('✅ Mobile scroll enabled');
+})();
