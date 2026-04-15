@@ -449,36 +449,83 @@ setTimeout(createConfetti, 1000);
   const track = document.getElementById('giftTrack');
   const toggleBtn = document.getElementById('giftToggle');
   if (!track || !toggleBtn) return;
+
   async function loadGiftCards() {
+    let data = [];
+
     try {
       const res = await fetch('assets/data/gift.json');
-      const data = await res.json();
-      // Double data for seamless loop
-      const doubleData = [...data, ...data];
-      doubleData.forEach((item) => {
-        const card = document.createElement('div');
-        card.className = 'gift-card';
+      data = await res.json();
+    } catch (err) {
+      console.log('Gift load error:', err);
+    }
+
+    // 🔥 Tambahin QRIS ke data
+    const qrisItem = {
+      bank: 'QRIS',
+      logo: 'assets/images/bank/qris.png',
+      number: '',
+      owner: '',
+      isQris: true,
+    };
+
+    const fullData = [...data, qrisItem];
+
+    // 🔥 DUPLICATE untuk infinite loop
+    const loopData = [...fullData, ...fullData];
+
+    // 🔥 render
+    loopData.forEach((item) => {
+      const card = document.createElement('div');
+      card.className = 'gift-card';
+
+      // 🌟 QRIS special style
+      if (item.isQris) {
+        card.classList.add('gift-qris');
         card.innerHTML = `
-          <img src="${item.logo}" class="gift-logo" alt="${item.bank}">
+          <img src="${item.logo}" class="gift-logo qris-img">
+          <div class="gift-info">
+            <h4>${item.bank}</h4>
+            <p>Scan QRIS</p>
+            </div>
+            <img src="${item.logo}" class="gift-logo qris-img glightbox-item">
+        `;
+      } else {
+        card.innerHTML = `
+          <img src="${item.logo}" class="gift-logo">
           <div class="gift-info">
             <h4>${item.bank}</h4>
             <p>${item.number}</p>
             <small>${item.owner}</small>
           </div>
         `;
-        track.appendChild(card);
-      });
-    } catch (err) {
-      console.log('Gift load error:', err);
-    }
+      }
+
+      track.appendChild(card);
+    });
   }
-  // Toggle play/pause
+
   toggleBtn.addEventListener('click', () => {
     const paused = track.classList.toggle('gift-paused');
     toggleBtn.textContent = paused ? 'Lanjutkan' : 'Jeda';
   });
-  document.addEventListener('DOMContentLoaded', loadGiftCards);
+
+  loadGiftCards();
 })();
+
+document.addEventListener('click', function (e) {
+  const img = e.target;
+
+  // kalau klik gambar QRIS
+  if (img.classList.contains('gift-highlight')) {
+    img.classList.toggle('zoomed');
+  } else {
+    // klik luar → tutup zoom
+    document
+      .querySelectorAll('.gift-highlight.zoomed')
+      .forEach((el) => el.classList.remove('zoomed'));
+  }
+});
 /* ===============================
    11. LIVE CHAT STREAM + KEHADIRAN
 =============================== */

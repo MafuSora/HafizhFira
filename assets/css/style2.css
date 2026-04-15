@@ -1,57 +1,81 @@
 /* ========================================
-   🎨 MOCHA LATTE + ROMANTIC PALETTE (ROOT CENTERED)
+   🎨 MOCHA LATTE + ROMANTIC PINK PALETTE
 ======================================== */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Great+Vibes&family=Playfair+Display:wght@400;600;700&display=swap");
 @font-face {
   font-family: myFirstFont;
   src: url("../font/Breathing.ttf");
 }
-
-
-
 :root {
-  /* --- ELEGANT PALETTE: CHAMPAGNE & CHARCOAL --- */
-  
-  /* Backgrounds: Cool Ivory & White (Bersih) */
-  --bg: #FAFAF8;          /* Cool White / Ivory */
-  --cream: #FFFFFF;       /* Pure White */
-  --beige: #F4F4F2;       /* Light Greyish White */
-  --pink-soft: #F9F9F9;   /* Off White */
-  --latte: #EAEAEA;       /* Light Grey */
+  /* --mocha-dark: #6F4E37;
+  --mocha-medium: #8B6F47;
+  --mocha-light: #C8AD7F;
+  --latte: #F5DEB3;
+  --pink-soft: #FFE4E1;
+  --pink-medium: #FFC0CB;
+  --pink-accent: #FFB6C1;
+  --rose: #E8C3B9;
+  --cream: #FFF8F3;
+  --beige: #FAF7F5;
+  --white: #FFFFFF;
+  --text: #4A3F35;
+  --text-light: #8B7E74;
+  --primary: var(--mocha-medium);
+  --secondary: var(--pink-soft);
+  --accent: var(--mocha-dark);
+  --bg: var(--cream); */
 
-  /* Typography: Soft Charcoal (Bukan Hitam Pekat) */
-  --text: #333333;        /* Dark Grey */
-  --text-light: #777777;  /* Medium Grey */
-  
-  /* Accents: Champagne Gold (Muted, bukan Kuning) */
-  --mocha-dark: #1A1A1A;  /* Almost Black / Charcoal */
-  --mocha-medium: #444444;/* Dark Grey */
-  --mocha-light: #888888; /* Grey */
-  
-  /* Warna Utama Emas */
-  --pink-accent: #C5A059; /* Champagne Gold */
-  --pink-medium: #D4AF37; /* Classic Gold */
-  
-  /* Secondary Accents */
-  --rose: #B0A080;        /* Muted Bronze/Taupe */
-  --rose-gold: #D8CFC0;   /* Pale Champagne */
-  --rose-dark: #8C7B64;   /* Dark Bronze */
-  
-  /* --- SEMANTIC MAPPING --- */
+  /* --mocha-dark: #7A5C1E;
+  --mocha-medium: #A8822A;
+  --mocha-light: #E2C675;
+  --latte: #F5E6B3;
+
+  --pink-soft: #F8E4C8;
+  --pink-medium: #F0D2A6;
+  --pink-accent: #E6C07B;
+  --rose: #D9B97A;
+
+  --cream: #FFF9ED;
+  --beige: #FAF5E6;
+  --white: #FFFFFF;
+
+  --text: #4E3B12;
+  --text-light: #8C7A4F;
+
+  --primary: var(--mocha-medium);
+  --secondary: var(--pink-soft);
+  --accent: var(--mocha-dark);
+  --bg: var(--cream); */
+
+  --mocha-dark: #2B1A0E;     /* deep wood (hampir walnut) */
+  --mocha-medium: #6B3E1F;   /* brown wood utama */
+  --mocha-light: #A67C52;    /* light wood */
+
+  --latte: #EAD7B0;
+
+  --pink-soft: #F5EBD7;      /* creamy warm */
+  --pink-medium: #D9B97A;    /* gold-soft */
+  --pink-accent: #CDA434;    /* base gold tetap jadi highlight */
+  --rose: #B08968;
+
+  --cream: #FFF8E8;
+  --beige: #F3E5C8;
+  --white: #FFFFFF;
+
+  --text: #2A1A0F;           /* dark wood text */
+  --text-light: #8B6B4A;
+
   --primary: var(--mocha-medium);
   --secondary: var(--pink-soft);
   --accent: var(--pink-accent);
-  --white: #FFFFFF;
+  --bg: var(--cream);
 
-  /* --- EFFECTS (More Subtle) --- */
-  --shadow-sm: 0 4px 20px rgba(0, 0, 0, 0.03);
-  --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.05);
-  --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.06);
-  
-  /* Transitions lebih smooth untuk kesan mahal */
-  --transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+  --shadow-sm: 0 2px 8px rgba(111, 78, 55, 0.1);
+  --shadow-md: 0 4px 16px rgba(111, 78, 55, 0.12);
+  --shadow-lg: 0 8px 32px rgba(111, 78, 55, 0.15);
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
-
 /* ========================================
    🎯 BASE STYLES
 ======================================== */
@@ -68,7 +92,6 @@ html {
 }
 body {
   margin: 0;
-  /* Gradient Background menggunakan Variable Root */
   background: linear-gradient(135deg, var(--cream) 0%, var(--pink-soft) 100%);
   color: var(--text);
   font-family: 'Poppins', sans-serif;
@@ -111,8 +134,7 @@ iframe {
 #envelopeScreen {
   position: fixed;
   inset: 0;
-  /* Gradient Animation menggunakan Variable Root */
-  background: linear-gradient(135deg, var(--pink-soft) 0%, var(--latte) 50%, var(--pink-soft) 100%);
+  background: linear-gradient(135deg, #FFE4E1 0%, #F5DEB3 50%, #FFE4E1 100%);
   background-size: 200% 200%;
   animation: gradientShift 8s ease infinite;
   display: flex;
@@ -160,7 +182,7 @@ iframe {
   position: absolute;
   font-size: 24px;
   opacity: 0.2;
-  color: var(--pink-medium); /* Ganti hardcoded dengan var */
+  color: #FFB6C1;
   animation: floatHeart 8s linear infinite;
   z-index: 25;
 }
@@ -208,7 +230,7 @@ iframe {
   top: 10%;
   width: 84%;
   max-height: 180px;
-  background: var(--white);
+  background: white;
   padding: 20px 40px 50px;
   border-radius: 16px;
   transform: translateY(0);
@@ -277,7 +299,7 @@ iframe {
   border-radius: 12px;
   z-index: 1;
   box-shadow: 
-    0 15px 40px rgba(0, 0, 0, 0.3),
+    0 15px 40px rgba(111, 78, 55, 0.3),
     inset 0 2px 10px rgba(255, 255, 255, 0.1);
 }
 .env-front {
@@ -322,7 +344,7 @@ iframe {
   align-items: center;
   justify-content: center;
   box-shadow: 
-    0 4px 12px rgba(205, 164, 52, 0.6),
+    0 4px 12px rgba(255, 182, 193, 0.6),
     inset 0 2px 5px rgba(255, 255, 255, 0.3);
   opacity: 1;
   animation: sealSpinSmooth 3s linear infinite;
@@ -372,8 +394,7 @@ iframe {
   justify-content: center;
   gap: 12px;
   padding: 18px 48px;
-  /* Gradient Button menggunakan Variable */
-  background: linear-gradient(135deg, var(--pink-medium) 0%, var(--rose) 50%, var(--mocha-medium) 100%);
+  background: linear-gradient(135deg, #FFB6C1 0%, #FF8FA3 50%, #8B6F47 100%);
   background-size: 200% 200%;
   color: white;
   border: none;
@@ -384,7 +405,7 @@ iframe {
   letter-spacing: 0.5px;
   cursor: pointer;
   box-shadow: 
-    0 10px 30px rgba(176, 137, 104, 0.4),
+    0 10px 30px rgba(255, 143, 163, 0.4),
     0 5px 15px rgba(0, 0, 0, 0.1),
     inset 0 1px 0 rgba(255, 255, 255, 0.4);
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -413,10 +434,10 @@ iframe {
 .btn-open-envelope:hover {
   transform: translateY(-5px) scale(1.05);
   box-shadow: 
-    0 15px 40px rgba(176, 137, 104, 0.5),
+    0 15px 40px rgba(255, 143, 163, 0.5),
     0 8px 25px rgba(0, 0, 0, 0.15),
     inset 0 1px 0 rgba(255, 255, 255, 0.6),
-    0 0 0 4px rgba(217, 185, 122, 0.3);
+    0 0 0 4px rgba(255, 182, 193, 0.3);
 }
 .btn-open-envelope:hover::before {
   left: 100%;
@@ -491,7 +512,7 @@ iframe {
   user-select: none;
   font-size: 13px;
   color: var(--text);
-  border: 2px solid var(--rose-gold); /* ✅ Variable */
+  border: 2px solid #E8C3B9; /* ✅ Rose Gold border */
   box-shadow: var(--shadow-sm);
   white-space: nowrap;
   min-width: 130px;
@@ -505,7 +526,7 @@ iframe {
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(212, 165, 165, 0.4), transparent); /* ✅ Variable */
+  background: linear-gradient(90deg, transparent, rgba(232, 195, 185, 0.4), transparent); /* ✅ Rose Gold shimmer */
   transition: left 0.5s;
 }
 .sidebar-item:hover::before {
@@ -514,26 +535,26 @@ iframe {
 .sidebar-item:hover {
   transform: translateX(-10px) scale(1.05);
   box-shadow: var(--shadow-md);
-  background: linear-gradient(135deg, rgba(212, 165, 165, 0.2), rgba(255, 255, 255, 0.95)); /* ✅ Variable */
-  border-color: var(--rose); /* ✅ Variable */
+  background: linear-gradient(135deg, rgba(232, 195, 185, 0.2), rgba(255, 255, 255, 0.95)); /* ✅ Rose Gold hover */
+  border-color: #D4A5A5; /* ✅ Rose Gold darker */
 }
 .sidebar-item.active {
-  background: linear-gradient(135deg, var(--rose-gold), var(--rose)); /* ✅ Variable */
+  background: linear-gradient(135deg, #D4A5A5, #B08972); /* ✅ Rose Gold gradient */
   color: white;
-  border-color: var(--rose-dark); /* ✅ Variable */
+  border-color: #9A6F5E; /* ✅ Rose Gold dark border */
   transform: translateX(-12px) scale(1.08);
   box-shadow: 
-    0 8px 20px rgba(176, 137, 114, 0.4),
-    0 0 0 3px rgba(212, 165, 165, 0.3);
+    0 8px 20px rgba(180, 137, 114, 0.4), /* ✅ Rose Gold shadow */
+    0 0 0 3px rgba(232, 195, 185, 0.3); /* ✅ Rose Gold outer glow */
   font-weight: 700;
 }
 .sidebar-item i {
   font-size: 18px;
   transition: transform 0.3s;
-  color: var(--rose-gold); /* ✅ Variable */
+  color: #D4A5A5; /* ✅ Rose Gold icon */
 }
 .sidebar-item.active i {
-  color: white;
+  color: white; /* ✅ White when active */
 }
 .sidebar-item:hover i {
   transform: scale(1.2);
@@ -552,7 +573,7 @@ iframe {
   transform: translateY(-50%);
   width: 48px;
   height: 48px;
-  background: linear-gradient(135deg, var(--rose-gold), var(--rose)); /* ✅ Variable */
+  background: linear-gradient(135deg, #D4A5A5, #B08972); /* ✅ Rose Gold button */
   border-radius: 50%;
   border: 3px solid white;
   display: flex;
@@ -563,8 +584,8 @@ iframe {
   font-size: 20px;
   color: white;
   box-shadow: 
-    0 6px 20px rgba(176, 137, 114, 0.4),
-    0 0 0 4px rgba(212, 165, 165, 0.3);
+    0 6px 20px rgba(180, 137, 114, 0.4), /* ✅ Rose Gold shadow */
+    0 0 0 4px rgba(232, 195, 185, 0.3); /* ✅ Rose Gold outer glow */
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   opacity: 0;
   pointer-events: none;
@@ -583,8 +604,8 @@ iframe {
 .sidebar-toggle-btn:hover {
   transform: translateY(-50%) scale(1.1);
   box-shadow: 
-    0 8px 25px rgba(176, 137, 114, 0.5),
-    0 0 0 6px rgba(212, 165, 165, 0.4);
+    0 8px 25px rgba(180, 137, 114, 0.5), /* ✅ Rose Gold hover shadow */
+    0 0 0 6px rgba(232, 195, 185, 0.4); /* ✅ Rose Gold hover glow */
 }
 .sidebar-toggle-btn:active {
   transform: translateY(-50%) scale(0.95);
@@ -598,13 +619,13 @@ iframe {
 @keyframes togglePulse {
   0%, 100% { 
     box-shadow: 
-      0 6px 20px rgba(176, 137, 114, 0.4),
-      0 0 0 4px rgba(212, 165, 165, 0.3);
+      0 6px 20px rgba(180, 137, 114, 0.4),
+      0 0 0 4px rgba(232, 195, 185, 0.3);
   }
   50% { 
     box-shadow: 
-            0 8px 25px rgba(176, 137, 114, 0.5),
-      0 0 0 8px rgba(212, 165, 165, 0.5);
+      0 8px 25px rgba(180, 137, 114, 0.5),
+      0 0 0 8px rgba(232, 195, 185, 0.5);
   }
 }
 .sidebar-toggle-btn.show {
@@ -632,7 +653,7 @@ iframe {
   cursor: pointer;
   box-shadow: 
     0 8px 24px rgba(111, 78, 55, 0.3),
-    0 0 0 8px rgba(245, 235, 215, 0.3);
+    0 0 0 8px rgba(255, 228, 225, 0.3);
   transition: var(--transition);
   z-index: 9999;
   border: 3px solid white;
@@ -646,7 +667,7 @@ iframe {
   transform: scale(1.15) rotate(15deg);
   box-shadow: 
     0 12px 32px rgba(111, 78, 55, 0.4),
-    0 0 0 12px rgba(245, 235, 215, 0.4);
+    0 0 0 12px rgba(255, 228, 225, 0.4);
 }
 .music-floating.playing {
   animation: musicPulse 1.5s infinite;
@@ -1632,45 +1653,16 @@ iframe {
   background: var(--pink-soft);
   border-radius: 16px;
   margin: 20px 0;
-  position: relative;
 }
-
-/* ✨ Fade kiri-kanan biar smooth loop */
-.gift-scroll::before,
-.gift-scroll::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  width: 60px;
-  height: 100%;
-  z-index: 2;
-  pointer-events: none;
-}
-
-.gift-scroll::before {
-  left: 0;
-  background: linear-gradient(to right, var(--pink-soft), transparent);
-}
-
-.gift-scroll::after {
-  right: 0;
-  background: linear-gradient(to left, var(--pink-soft), transparent);
-}
-
-/* TRACK */
 .gift-track {
   display: flex;
   gap: 20px;
   width: max-content;
-  animation: giftRun 30s linear infinite;
-  will-change: transform; /* 🔥 smoother */
+  animation: giftRun 35s linear infinite;
 }
-
 .gift-paused {
   animation-play-state: paused;
 }
-
-/* CARD */
 .gift-card {
   min-width: 240px;
   background: white;
@@ -1681,16 +1673,13 @@ iframe {
   gap: 16px;
   box-shadow: var(--shadow-md);
   border: 2px solid var(--pink-soft);
-  transition: all 0.3s ease;
+  transition: var(--transition);
 }
-
 .gift-card:hover {
-  transform: translateY(-6px) scale(1.02);
+  transform: translateY(-5px);
   box-shadow: var(--shadow-lg);
   border-color: var(--pink-medium);
 }
-
-/* LOGO */
 .gift-logo {
   width: 50px;
   height: 50px;
@@ -1699,106 +1688,54 @@ iframe {
   border-radius: 12px;
   padding: 8px;
 }
-
-/* INFO */
 .gift-info h4 {
   font-size: 16px;
   margin: 0 0 4px 0;
   color: var(--mocha-dark);
   font-weight: 600;
 }
-
 .gift-info p {
   margin: 0;
   font-size: 14px;
   color: var(--text);
   font-weight: 500;
 }
-
 .gift-info small {
   font-size: 12px;
   color: var(--text-light);
 }
-
-/* 🌟 QRIS SPECIAL CARD */
-.gift-qris {
-  background: linear-gradient(135deg, #ff7eb3, #ff758c);
-  color: white;
-  border: none;
-  transform: scale(1.05);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-}
-
-.gift-qris .gift-logo {
-  background: rgba(255,255,255,0.2);
-}
-
-
-
-/* 🔥 QRIS glow effect */
-
-
-/* ANIMATION */
 @keyframes giftRun {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
 }
-
-/* MOBILE */
+/* Mobile slower speed */
 @media (max-width: 768px) {
   .gift-track {
-    animation: giftRunMobile 50s linear infinite;
+    animation: giftRunMobile 60s linear infinite;
   }
-
   @keyframes giftRunMobile {
     from { transform: translateX(0); }
     to { transform: translateX(-50%); }
   }
 }
-
 @media (max-width: 480px) {
   .gift-track {
-    animation: giftRunMobile 65s linear infinite;
+    animation: giftRunMobile 70s linear infinite;
     gap: 16px;
   }
-
   .gift-card {
     min-width: 200px;
   }
 }
-
-/* PAUSE */
+/* Pause on hover/touch */
 .gift-track:hover {
   animation-play-state: paused;
 }
-
 @media (hover: none) {
   .gift-scroll:active .gift-track {
     animation-play-state: paused;
   }
 }
-
-.gift-highlight {
-  width: 120px;
-  border-radius: 12px;
-  cursor: zoom-in;
-  transition: all 0.3s ease;
-}
-
-/* Hover (desktop) */
-.gift-highlight:hover {
-  transform: scale(1.2);
-}
-
-.gift-qris {
-  background: white;      /* bebas kamu mau putih */
-  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-}
-
 /* ========================================
    🎬 VIDEO SECTION
 ======================================== */
@@ -2368,7 +2305,7 @@ iframe {
     border-radius: 20px;
     gap: 8px;
     backdrop-filter: blur(10px);
-    border: 2px solid var(--rose-gold);
+    border: 2px solid #E8C3B9;
     box-shadow: var(--shadow-lg);
     overflow-x: auto;
     overflow-y: hidden;
@@ -2385,16 +2322,16 @@ iframe {
     height: 5px;
   }
   #sidebarNav::-webkit-scrollbar-track {
-    background: rgba(212, 165, 165, 0.2);
+    background: rgba(232, 195, 185, 0.2);
     border-radius: 10px;
     margin: 0 10px;
   }
   #sidebarNav::-webkit-scrollbar-thumb {
-    background: var(--rose-gold);
+    background: #D4A5A5;
     border-radius: 10px;
   }
   #sidebarNav::-webkit-scrollbar-thumb:hover {
-    background: var(--rose);
+    background: #B08972;
   }
   /* ✅ Gradient fade */
   #sidebarNav::before,
@@ -2969,4 +2906,3 @@ button:disabled, input:disabled, textarea:disabled {
 /* ========================================
    ✅ END OF CSS FILE
 ======================================== */
-
