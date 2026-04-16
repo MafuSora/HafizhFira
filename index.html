@@ -72,7 +72,8 @@
           <!-- Card Inside -->
           <div class="env-card" id="envelopeCard">
             <div class="card-header">
-              <span class="card-icon">💌</span>
+              <span class="card-icon">💌 </span>
+              <span class="sr-only">By Hafizh was Here ⸜(｡˃ ᵕ ˂ )⸝♡</span>
               <h2 class="card-title">Kepada Yth.</h2>
             </div>
             <h3 id="namaTamu" class="card-name">Tamu Undangan</h3>
@@ -101,6 +102,7 @@
           <i class="fa-solid fa-hand-point-up"></i>
           Ketuk tombol untuk membuka undangan
         </p>
+        <span class="sr-only">By Hafizh was Here ⸜(｡˃ ᵕ ˂ )⸝♡</span>
       </div>
     </div>
     <!-- <p class="env-time">Waktu Kehadiran: <b id="waktuTamu"></b></p> -->
@@ -166,10 +168,40 @@
     <!-- ============================================================
      MUSIC PLAYER FLOAT
 =============================================================== -->
-    <div id="musicBtn" class="music-floating">
+    <!-- <source src="assets/music/howl331ogg.ogg" type="audio/ogg" /> -->
+    <!-- <div id="musicBtn" class="music-floating">
       <i class="fa-solid fa-music"></i>
     </div>
-    <audio id="bgm" src="assets/music/default.mp3" loop></audio>
+    <audio id="bgm" loop preload="none">
+      <source src="assets/music/howl331.mp3" type="audio/mpeg" />
+    </audio>
+    <input
+      type="range"
+      min="0"
+      max="1"
+      step="0.01"
+      value="0.5"
+      id="volumeControl"
+    /> -->
+    <div class="music-container">
+      <div id="musicBtn" class="music-floating">
+        <i class="fa-solid fa-music"></i>
+      </div>
+
+      <input
+        type="range"
+        min="0"
+        max="1"
+        step="0.01"
+        value="0.5"
+        id="volumeControl"
+        class="volume-slider"
+      />
+    </div>
+
+    <audio id="bgm" loop preload="none">
+      <source src="assets/music/howl331.mp3" type="audio/mpeg" />
+    </audio>
     <!-- ============================================================
      MAIN CONTAINER (SCROLL SNAP)
 =============================================================== -->
@@ -184,6 +216,7 @@
       <section id="sectionHero" class="snap-section fade-section">
         <h1 class="title-script">Resepsi Pernikahan</h1>
         <h2 class="title">Hafizh</h2>
+        <span class="sr-only">By Hafizh was Here ⸜(｡˃ ᵕ ˂ )⸝♡</span>
         <h2 class="title2">&</h2>
         <h2 class="title" style="margin-bottom: 10px">Fira</h2>
         <div
@@ -231,8 +264,30 @@
             src="./assets/images/bismillah.png"
             class="bismillah2"
             alt="Bismillahirrahmaanirrahiim"
-            style="width: 30%"
+            style="width: 45%"
           />
+          <!-- <div
+            class="bismillah2"
+            style="
+              width: 30%;
+              /* Sesuaikan tinggi gambar sesuai aslinya agar tidak gepeng */
+              height: 60px;
+              background-color: #10b981; /* Warna Hijau Emerald */
+
+              /* Ini bagian ajaib untuk memotong warna hijau sesuai bentuk gambar */
+              -webkit-mask-image: url('./assets/images/bismillah.png');
+              mask-image: url('./assets/images/bismillah.png');
+
+              -webkit-mask-size: contain;
+              mask-size: contain;
+
+              -webkit-mask-repeat: no-repeat;
+              mask-repeat: no-repeat;
+
+              -webkit-mask-position: center;
+              mask-position: center;
+            "
+          ></div> -->
           <p class="bodytext">
             Assalamu'alaikum Warahmatullahi Wabarakatuh.
             <br />
@@ -259,6 +314,8 @@
             </div>
             <div class="mempelai-content">
               <h2 class="mempelai-name">drh. Shafira Salwa Salsabil</h2>
+              <span class="sr-only">By Hafizh was Here ⸜(｡˃ ᵕ ˂ )⸝♡</span>
+
               <!-- <p class="mempelai-title">drh. Shafira Salwa Salsabil</p> -->
               <div class="mempelai-divider"></div>
               <p class="mempelai-desc">Putri dari:</p>
@@ -301,6 +358,7 @@
             </div>
             <div class="mempelai-content">
               <h2 class="mempelai-name">Hafizh Maulana, S.T</h2>
+              <span class="sr-only">By Hafizh was Here ⸜(｡˃ ᵕ ˂ )⸝♡</span>
               <!-- <p class="mempelai-title">Hafizh Maulana, S.T</p> -->
               <div class="mempelai-divider"></div>
               <p class="mempelai-desc">Putra dari:</p>
@@ -414,6 +472,7 @@
                   loading="lazy"
                   referrerpolicy="no-referrer-when-downgrade"
                 ></iframe>
+                <span class="sr-only">By Hafizh was Here ⸜(｡˃ ᵕ ˂ )⸝♡</span>
                 <iframe
                   class="map-frame"
                   src="https://www.google.com/maps/embed?pb=!4v1774627403217!6m8!1m7!1sZoEFjqLj7brqG0nZ8XkLBA!2m2!1d-6.522590464533257!2d107.4671149758358!3f79.40086045137286!4f-2.0409266566106083!5f0.7820865974627469"
@@ -496,6 +555,7 @@
             src="https://www.youtube.com/embed/QjJREh5D0IQ?si=WE3L0PELV2mrXmuv&controls=1&rel=0&playsinline=1&cc_load_policy=0&autoplay=1&enablejsapi=1&mute=1"
             id="widget2"
           ></iframe>
+          <span class="sr-only">By Hafizh was Here ⸜(｡˃ ᵕ ˂ )⸝♡</span>
         </div>
       </section>
       <!-- ============================================================
@@ -639,7 +699,10 @@
       style="text-align: center; opacity: 0.6; margin-top: -15px"
     >
       <p>© 2026 Undangan Hafizh & Fira</p>
-      <p>Created with ❤️</p>
+      <p>
+        Created with 💚
+        <span class="sr-only">By Hafizh was Here ⸜(｡˃ ᵕ ˂ )⸝♡</span>
+      </p>
     </section>
     <!-- ===============================
      SCRIPTS
@@ -648,5 +711,16 @@
     <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
     <!-- Main Script - ALL IN ONE -->
     <script src="assets/js/main2.js"></script>
+    <script>
+      const bgm = document.getElementById('bgm');
+
+      const volumeControl = document.getElementById('volumeControl');
+
+      volumeControl.addEventListener('input', () => {
+        bgm.volume = volumeControl.value;
+      });
+      // 0 = silent, 1 = full volume
+      bgm.volume = 0.5;
+    </script>
   </body>
 </html>

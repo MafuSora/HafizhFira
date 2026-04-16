@@ -652,6 +652,8 @@ iframe {
 .music-floating.playing {
   animation: musicPulse 1.5s infinite;
 }
+
+
 @keyframes musicPulse {
   0%, 100% {
     transform: scale(1);
@@ -660,6 +662,128 @@ iframe {
     transform: scale(1.08);
   }
 }
+/* =========================
+   MUSIC CONTAINER (FLOATING)
+========================= */
+.music-container {
+  position: fixed;
+  right: 20px;
+  bottom: 5em; /* posisi default */
+  z-index: 9999;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px; /* jarak tombol & slider */
+}
+
+/* =========================
+   MUSIC BUTTON (KAMU)
+========================= */
+.music-floating {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--pink-accent), var(--rose));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+
+  box-shadow: 
+    0 8px 24px rgba(111, 78, 55, 0.3),
+    0 0 0 8px rgba(245, 235, 215, 0.3);
+
+  transition: var(--transition);
+  border: 3px solid white;
+
+  transform: translateZ(0);
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+.music-floating:hover {
+  transform: scale(1.15) rotate(15deg);
+  box-shadow: 
+    0 12px 32px rgba(111, 78, 55, 0.4),
+    0 0 0 12px rgba(245, 235, 215, 0.4);
+}
+
+.music-floating.playing {
+  animation: musicPulse 1.5s infinite;
+}
+
+@keyframes musicPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+}
+
+/* =========================
+   VOLUME SLIDER
+========================= */
+.volume-slider {
+  -webkit-appearance: none;
+  appearance: none;
+
+  width: 60px; /* kamu bisa adjust */
+  height: 6px;
+  margin-bottom: 10px;
+
+  border-radius: 10px;
+  background: #c7e8d0; /* pastel track */
+
+  outline: none;
+}
+
+/* Chrome track */
+.volume-slider::-webkit-slider-runnable-track {
+  height: 6px;
+  border-radius: 10px;
+  background: #c7e8d0;
+}
+
+/* Thumb (bulatan) */
+.volume-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+
+  background: #4f8f6b; /* dark pastel green */
+  cursor: pointer;
+
+  margin-top: -5px;
+
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+/* Firefox */
+.volume-slider::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #4f8f6b;
+  border: none;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 770px) {
+  .music-container {
+    padding-right: 3px;
+    bottom: 10em; /* naikkan posisi di layar kecil */
+  }
+
+  .volume-slider {
+    width: 50px; /* sedikit lebih kecil */
+  }
+}
+
 /* ========================================
    📄 MAIN CONTAINER
 ======================================== */
@@ -680,6 +804,18 @@ iframe {
 /* ========================================
    📄 SECTIONS
 ======================================== */
+/* TRADEmark */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
 .snap-section {
   padding: 80px 20px;
   min-height: 100vh;

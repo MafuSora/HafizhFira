@@ -369,14 +369,16 @@ setTimeout(createConfetti, 1000);
   function buatBunga() {
     const bunga = document.createElement('div');
     bunga.classList.add('flower');
+    // bunga.innerHTML = '🍃';
     bunga.innerHTML = '❀';
     // Random pastel colors
-    const warna = ['#FFE4E1', '#FFC0CB', '#F5DEB3', '#E8C3B9'];
+    // const warna = ['#FFE4E1', '#FFC0CB', '#F5DEB3', '#E8C3B9'];
+    const warna = ['#E8F5E9', '#A5D6A7', '#C5E1A5', '#80CBC4'];
     bunga.style.color = warna[Math.floor(Math.random() * warna.length)];
     // Random X position
     bunga.style.left = Math.random() * 100 + 'vw';
     // Random size
-    bunga.style.fontSize = 12 + Math.random() * 12 + 'px';
+    bunga.style.fontSize = 20 + Math.random() * 12 + 'px';
     // Fall duration
     const durasi = 6000 + Math.random() * 4000;
     // Animate
