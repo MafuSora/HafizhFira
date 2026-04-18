@@ -78,7 +78,7 @@
             </div>
             <h3 id="namaTamu" class="card-name">Tamu Undangan</h3>
 
-            <p class="card-time">Sabtu, 23 Mei 2026</p>
+            <p id="tanggalTamu" class="card-time">Sabtu, 23 Mei 2026</p>
             <p class="card-time">
               <i class="fa-solid fa-clock"></i>
 
@@ -200,7 +200,11 @@
     </div>
 
     <audio id="bgm" loop preload="none">
-      <source src="assets/music/howl331.mp3" type="audio/mpeg" />
+      <source
+        id="musicSource"
+        src="assets/music/howl331.mp3"
+        type="audio/mpeg"
+      />
     </audio>
     <!-- ============================================================
      MAIN CONTAINER (SCROLL SNAP)
@@ -229,10 +233,13 @@
         >
           Hafizh Maulana, S.T <br />& drh. Shafira Salwa Salsabil
         </div>
-        <div style="margin-top: 20px; font-size: 16px; text-align: center">
+        <div
+          id="tanggalTamu"
+          style="margin-top: 20px; font-size: 16px; text-align: center"
+        >
           Sabtu, 23 Mei 2026 <br />
           <!-- 10.00 WIB - Selesai -->
-          <b id="waktuTamu"></b>
+          <b id="waktuTamu">10.00 WIB - Selesai</b>
         </div>
         <div class="event-countdown">
           <div class="countdown-item">
@@ -405,13 +412,12 @@
             <div class="event-content">
               <h3 class="event-title">Waktu Acara</h3>
               <div class="event-divider"></div>
-              <div class="event-detail">
-                <span class="detail-label">Hari</span>
-                <span class="detail-value">Sabtu</span>
-              </div>
+
               <div class="event-detail">
                 <span class="detail-label">Tanggal</span>
-                <span class="detail-value">23 Mei 2026</span>
+                <span id="tanggalTamu" class="detail-value"
+                  >Sabtu, 23 Mei 2026</span
+                >
               </div>
               <div class="event-detail">
                 <span class="detail-label">Pukul</span>
@@ -712,6 +718,8 @@
     <!-- Main Script - ALL IN ONE -->
     <script src="assets/js/main2.js"></script>
     <script>
+      const data = initSlug();
+      initCountdown(data);
       const bgm = document.getElementById('bgm');
 
       const volumeControl = document.getElementById('volumeControl');
@@ -719,6 +727,7 @@
       volumeControl.addEventListener('input', () => {
         bgm.volume = volumeControl.value;
       });
+
       // 0 = silent, 1 = full volume
       bgm.volume = 0.5;
     </script>

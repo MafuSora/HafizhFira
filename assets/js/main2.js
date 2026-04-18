@@ -34,90 +34,143 @@
 /* ===============================
    2. SLUG HANDLER (Dual Mode)
 =============================== */
-(function initSlug() {
-  let tipe = 0;
-  let nama = 'Tamu Undangan';
-  let tipe_tanggal = 0;
-  const path = window.location.pathname.split('/').filter(Boolean);
+/* ===============================
+   2. SLUG HANDLER (FIXED VERSION)
+   =============================== */
+function initSlug() {
   const url = new URL(window.location.href);
-  // MODE PATH
-  if (path.length >= 2 && !path[0].includes('.html')) {
-    tipe = Number(path[0]);
-    nama = decodeURIComponent(path[1]);
+  const path = window.location.pathname.split('/').filter(Boolean);
+
+  let tipe = null;
+  let tanggal = null;
+  let musik = null;
+  let nama = null;
+
+  const qp = url.searchParams;
+
+  // =======================
+  // 1. QUERY NORMAL (PRIORITAS)
+  // =======================
+  if (
+    qp.has('tipe') ||
+    qp.has('date') ||
+    qp.has('nama') ||
+    qp.has('to') ||
+    qp.has('t') ||
+    qp.has('d') ||
+    qp.has('n') ||
+    qp.has('m')
+  ) {
+    tipe = Number(qp.get('tipe') || qp.get('t')) || null;
+    tanggal = qp.get('date') || qp.get('d') || null;
+    musik = qp.get('m') || qp.get('music') || null;
+    nama =
+      qp.get('nama') || qp.get('to') || qp.get('n') || qp.get('name') || null;
   }
 
-  // MODE index.html
-  else if (path.length >= 3 && path[0].includes('.html')) {
-    tipe = Number(path[1]);
-    nama = decodeURIComponent(path[2]);
-  }
-
-  // MODE QUERY NORMAL
-  else if (url.searchParams.has('t')) {
-    tipe = Number(url.searchParams.get('t'));
-    nama = url.searchParams.get('nama');
-  }
-
-  // MODE QUERY ANEH: ?/1/Gordon
-  else if (url.search.startsWith('?/')) {
-    const parts = url.search.slice(2).split('/');
-    if (parts.length >= 2) {
-      tipe = Number(parts[0]);
-      nama = decodeURIComponent(parts[1]);
-    }
-  }
-  // handle ?1/Gordon
-  else if (/^\?\d+\/.+/.test(url.search)) {
+  // =======================
+  // 2. FORMAT ANEH: ?1/2/1/nama
+  // =======================
+  else if (url.search.startsWith('?') && url.search.includes('/')) {
     const parts = url.search.slice(1).split('/');
-    if (parts.length >= 2) {
+
+    if (parts.length >= 4) {
       tipe = Number(parts[0]);
-      nama = decodeURIComponent(parts[1]);
+      tanggal = parts[1];
+      musik = parts[2];
+      nama = decodeURIComponent(parts[3]);
     }
   }
-  if (url.searchParams.has('tipe')) {
-    tipe = Number(url.searchParams.get('tipe'));
-  }
-  if (url.searchParams.has('n')) {
-    nama = url.searchParams.get('n');
-  }
-  if (url.searchParams.has('name')) {
-    nama = url.searchParams.get('name');
-  }
-  if (url.searchParams.has('d')) {
-    tipe_tanggal = url.searchParams.get('d');
-  }
-  if (url.searchParams.has('date')) {
-    tipe_tanggal = url.searchParams.get('date');
-  }
-  // Tentukan jam berdasarkan tipe
-  let jam = '';
-  if (tipe === 1) jam = '10:00 - 12:00 WIB';
-  else if (tipe === 2) jam = '12:00 - 15:00 WIB';
-  else if (tipe === 3) jam = '10:00 - 15:00 WIB';
-  else jam = '10:00 WIB - Selesai';
 
-  // Tentukan tanggal berdasarkan tipe
-  let tanggal = '';
-  if (tipe_tanggal === 1) tanggal = 'Sabtu, 16 Mei 2026';
-  else if (tipe_tanggal === 2) tanggal = `Jum'at, 15 Mei 2026`;
-  else if (tipe_tanggal === 3) tanggal = 'Sabtu, 23 Mei 2026';
-  else tanggal = tipe_tanggal;
-  // Apply ke semua element dengan id #namaTamu
-  document.querySelectorAll('#namaTamu').forEach((el) => {
-    el.textContent = nama.replaceAll('+', ' ');
+  // =======================
+  // 3. PATH MODE: /music/tipe/date/nama
+  // =======================
+  else if (path.length >= 3 && !path[0].includes('.html')) {
+    musik = path[0];
+    tipe = Number(path[1]);
+    tanggal = path[2];
+    nama = decodeURIComponent(path[3] || 'Tamu Undangan');
+  }
+
+  // =======================
+  // DEFAULT
+  // =======================
+  if (!nama) nama = 'Tamu Undangan';
+
+  // ✅ BAGIAN PERBAIKAN: INJECT KE HTML
+  // =====================================
+
+  // 1. Update Nama Tamu (Mencari semua elemen dengan id="namaTamu")
+  const namaElements = document.querySelectorAll('[id="namaTamu"]');
+  namaElements.forEach((el) => {
+    el.textContent = nama;
   });
-  // Apply ke input komentar (readonly)
-  const namaKomentar = document.querySelector('#komentarNama');
-  if (namaKomentar) namaKomentar.value = nama.replaceAll('+', ' ');
-  // Apply jam
-  document.querySelectorAll('#waktuTamu').forEach((el) => {
-    el.textContent = jam;
+
+  // 2. Update Tanggal (Format ISO "2026-05-23" jadi "Sabtu, 23 Mei 2026")
+  if (tanggal) {
+    const dateElements = document.querySelectorAll('[id="tanggalTamu"]');
+    // Cek apakah formatnya YYYY-MM-DD
+    const isDateIso = /^\d{4}-\d{2}-\d{2}$/.test(tanggal);
+
+    if (isDateIso) {
+      const dateObj = new Date(tanggal);
+      const options = {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+      };
+      const formattedDate = dateObj.toLocaleDateString('id-ID', options);
+      dateElements.forEach((el) => {
+        el.textContent = formattedDate;
+      });
+    } else {
+      // Jika bukan format ISO, pakai apa adanya
+      dateElements.forEach((el) => {
+        el.textContent = tanggal;
+      });
+    }
+  } else {
+    const dateElements = document.querySelectorAll('[id="tanggalTamu"]');
+    dateElements.forEach((el) => {
+      el.textContent = 'Sabtu, 23 Mei 2026';
+    });
+  }
+
+  // 3. Update Waktu berdasarkan Tipe (Type)
+  const waktuElements = document.querySelectorAll('[id="waktuTamu"]');
+  let waktuText = '10.00 WIB - Selesai'; // Default
+
+  if (tipe === 1) {
+    waktuText = '10.00 WIB - 12.00 WIB';
+  } else if (tipe === 2) {
+    waktuText = '13.00 WIB - 15.00 WIB';
+  } else if (tipe === 3) {
+    waktuText = '10.00 WIB - Selesai';
+  } else if (tipe === 4) {
+    waktuText = '09.00 WIB - Selesai';
+  }
+  // Tambahkan logika tipe lain jika perlu...
+  // ✅ 4. SET MUSIK (Dinamis)
+  if (musik) {
+    const audioSrc = document.getElementById('musicSource');
+    const audioPlayer = document.getElementById('bgm');
+
+    if (audioSrc) {
+      // Logika: Jika parameter musik dikirim (misal ?m=lagu1)
+      // Maka ubah src menjadi 'assets/music/lagu1.mp3'
+      audioSrc.src = 'assets/music/' + musik + '.mp3';
+
+      // Wajib memanggil .load() agar browser memuat file baru
+      audioPlayer.load();
+    }
+  }
+  waktuElements.forEach((el) => {
+    el.textContent = waktuText;
   });
-  // // Apply jam
-  // document.querySelectorAll('#tanggalTamu').forEach((el) => {
-  //   el.textContent = tanggal;
-  // });
-})();
+
+  return { tipe, tanggal, musik, nama };
+}
 /* ===============================
    3. ENVELOPE INTERACTIVE ANIMATION
 =============================== */
@@ -952,59 +1005,82 @@ window.WeddingApp = {
    ⏰ COUNTDOWN TIMER - UNIVERSAL VERSION
    Applies to ALL countdown elements on page
 =============================== */
-(function initCountdown() {
-  // ✅ Query ALL countdown elements (bisa multiple)
-  const allDays = document.querySelectorAll(
+function initCountdown(data) {
+  const { tipe, tanggal } = data;
+
+  const daysEl = document.querySelectorAll(
     '[id="days"], [data-countdown="days"]',
   );
-  const allHours = document.querySelectorAll(
+  const hoursEl = document.querySelectorAll(
     '[id="hours"], [data-countdown="hours"]',
   );
-  const allMinutes = document.querySelectorAll(
+  const minutesEl = document.querySelectorAll(
     '[id="minutes"], [data-countdown="minutes"]',
   );
-  const allSeconds = document.querySelectorAll(
+  const secondsEl = document.querySelectorAll(
     '[id="seconds"], [data-countdown="seconds"]',
   );
-  // Check if ada countdown elements
-  if (allDays.length === 0) {
-    console.warn('⚠️ No countdown elements found');
+
+  if (!daysEl.length) {
+    console.warn('Countdown element tidak ditemukan');
     return;
   }
-  // Event date
-  const eventDate = new Date('May 23, 2026 10:00:00').getTime();
-  function updateCountdown() {
-    const now = new Date().getTime();
+
+  // =======================
+  // MAP TANGGAL DEFAULT
+  // =======================
+  const mapTanggal = {
+    '1': '2026-05-16',
+    '2': '2026-05-15',
+    '3': '2026-05-23',
+  };
+
+  const isDate = /^\d{4}-\d{2}-\d{2}$/.test(tanggal);
+
+  const finalDate = isDate ? tanggal : mapTanggal[tanggal] || '2026-05-23';
+
+  // jam berdasarkan tipe
+  let jam = '10:00:00';
+  if (tipe === 2) jam = '12:00:00';
+  else if (tipe === 3) jam = '10:00:00';
+  else if (tipe === 4) jam = '09:00:00';
+
+  const eventDate = new Date(`${finalDate}T${jam}`).getTime();
+
+  // =======================
+  // UPDATE LOOP
+  // =======================
+  function update() {
+    const now = Date.now();
     const diff = eventDate - now;
-    // Jika event sudah lewat
+
     if (diff <= 0) {
-      allDays.forEach((el) => (el.textContent = '00'));
-      allHours.forEach((el) => (el.textContent = '00'));
-      allMinutes.forEach((el) => (el.textContent = '00'));
-      allSeconds.forEach((el) => (el.textContent = '00'));
+      [...daysEl, ...hoursEl, ...minutesEl, ...secondsEl].forEach(
+        (el) => (el.textContent = '00'),
+      );
       return;
     }
-    // Calculate time
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-    // ✅ Update ALL elements
-    allDays.forEach((el) => (el.textContent = String(days).padStart(2, '0')));
-    allHours.forEach((el) => (el.textContent = String(hours).padStart(2, '0')));
-    allMinutes.forEach(
+
+    const days = Math.floor(diff / 86400000);
+    const hours = Math.floor((diff % 86400000) / 3600000);
+    const minutes = Math.floor((diff % 3600000) / 60000);
+    const seconds = Math.floor((diff % 60000) / 1000);
+
+    daysEl.forEach((el) => (el.textContent = String(days).padStart(2, '0')));
+    hoursEl.forEach((el) => (el.textContent = String(hours).padStart(2, '0')));
+    minutesEl.forEach(
       (el) => (el.textContent = String(minutes).padStart(2, '0')),
     );
-    allSeconds.forEach(
+    secondsEl.forEach(
       (el) => (el.textContent = String(seconds).padStart(2, '0')),
     );
   }
-  // Initial update
-  updateCountdown();
-  // Update setiap detik
-  setInterval(updateCountdown, 1000);
-  console.log(`⏰ Countdown initialized for ${allDays.length} instance(s)`);
-})();
+
+  update();
+  setInterval(update, 1000);
+
+  console.log('⏰ Countdown ready:', finalDate, jam);
+}
 
 /* ===============================
    SCROLL INDICATOR
